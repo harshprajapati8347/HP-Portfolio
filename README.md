@@ -23,7 +23,7 @@ This is a standard **Next.js** project bootstrapped using `create-next-app`.
 
 ```bash
 yarn
-````
+```
 
 ### Start Development Server
 
@@ -41,7 +41,7 @@ http://localhost:3000
 
 ## Connect with Me
 
-* 🌐 **Portfolio:** [https://www.iamharsh.in](https://www.iamharsh.in)
-* 💼 **LinkedIn:** [https://www.linkedin.com/in/harshprajapati-developer](https://www.linkedin.com/in/harshprajapati-developer)
-* 💻 **GitHub:** [https://github.com/harshprajapati8347](https://github.com/harshprajapati8347)
-* 📧 **Email:** [harshprajapati0123@gmail.com](mailto:harshprajapati0123@gmail.com)
+- 🌐 **Portfolio:** [https://www.iamharsh.in](https://www.iamharsh.in)
+- 💼 **LinkedIn:** [https://www.linkedin.com/in/harsh-prajapati-developer/](https://www.linkedin.com/in/harsh-prajapati-developer/)
+- 💻 **GitHub:** [https://github.com/harshprajapati8347](https://github.com/harshprajapati8347)
+- 📧 **Email:** [harshprajapati0123@gmail.com](mailto:harshprajapati0123@gmail.com)
