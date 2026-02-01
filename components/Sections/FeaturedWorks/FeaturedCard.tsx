@@ -15,6 +15,7 @@ import {
 import { motion } from 'framer-motion'
 import styles from './styles.module.css'
 import { easing, DURATIONS } from 'config/animations'
+import { ExternalLinkIcon } from '@chakra-ui/icons'
 
 export type FeaturedCardProps = {
   // Still can't find what's correct value for responsive value
@@ -26,6 +27,7 @@ export type FeaturedCardProps = {
   description: string
   objectPosition?: string
   ctaUrl: string
+  githubUrl?: string
   isMobile?: boolean
 }
 
@@ -58,12 +60,14 @@ const ProjectDescription = ({
   title,
   description,
   ctaUrl,
+  githubUrl,
   isLeft,
 }: {
   idx?: number
   title: string
   description: string
   ctaUrl: string
+  githubUrl?: string
   isLeft: boolean
 }) => (
   <Container
@@ -107,19 +111,76 @@ const ProjectDescription = ({
     >
       {description}
     </Text>
-    <Button
-      variant="outlineAlternative"
-      fontWeight="light"
-      fontSize={{ base: 'sm', '2xl': 'md' }}
-      size="sm"
-      as="a"
-      href={ctaUrl}
-      rel="noreferrer"
-      target="_blank"
-      marginY={{ base: 3, md: 0 }}
+    <Stack
+      direction={isLeft ? 'row-reverse' : 'row'}
+      spacing={{ base: 3, md: 4 }}
+      alignSelf={isLeft ? 'flex-end' : 'flex-start'}
+      alignItems="center"
     >
-      View Project
-    </Button>
+      {/* Live Button */}
+      <Button
+        as="a"
+        href={ctaUrl}
+        target="_blank"
+        rel="noreferrer"
+        size="sm"
+        fontWeight="medium"
+        fontSize={{ base: 'sm', '2xl': 'md' }}
+        colorScheme="teal"
+        rightIcon={
+          <Box
+            as="span"
+            transition="all 0.2s ease"
+            _groupHover={{
+              transform: 'translate(4px, -4px)',
+              opacity: 1,
+            }}
+            opacity={0.7}
+          >
+            <ExternalLinkIcon />
+          </Box>
+        }
+        role="group"
+        _hover={{
+          textDecoration: 'none',
+        }}
+      >
+        Live
+      </Button>
+
+      {/* GitHub Button */}
+      {githubUrl && (
+        <Button
+          as="a"
+          href={githubUrl}
+          target="_blank"
+          rel="noreferrer"
+          size="sm"
+          fontWeight="medium"
+          fontSize={{ base: 'sm', '2xl': 'md' }}
+          variant="outline"
+          rightIcon={
+            <Box
+              as="span"
+              transition="all 0.2s ease"
+              _groupHover={{
+                transform: 'translate(4px, -4px)',
+                opacity: 1,
+              }}
+              opacity={0.6}
+            >
+              <ExternalLinkIcon />
+            </Box>
+          }
+          role="group"
+          _hover={{
+            textDecoration: 'none',
+          }}
+        >
+          View Code
+        </Button>
+      )}
+    </Stack>
   </Container>
 )
 
@@ -131,6 +192,7 @@ const FeaturedCard = ({
   description,
   objectPosition,
   ctaUrl,
+  githubUrl,
   isMobile,
 }: FeaturedCardProps) => {
   const isLeftImage = isMobile ? false : idx % 2 === 0
@@ -172,6 +234,7 @@ const FeaturedCard = ({
           title={title}
           description={description}
           ctaUrl={ctaUrl}
+          githubUrl={githubUrl}
           isLeft={isLeftImage}
         />
         {!isLeftImage && <CoverImage />}

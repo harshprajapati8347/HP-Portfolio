@@ -52,6 +52,7 @@ const FeaturedWorksSection = () => {
             description="A scalable multi-vendor e-commerce CMS built using the MERN stack. Features include role-based authentication, real-time chat with Socket.IO, Stripe payment integration, and a responsive admin dashboard. Deployed on AWS EC2 for production scalability."
             height={{ base: '130px', md: '225px', '2xl': '300px' }}
             ctaUrl="https://curiomart.iamharsh.in"
+            githubUrl="https://github.com/harshprajapati8347/CurioMart-Ecommerce"
             objectPosition="right 20%"
             isMobile={isMobile}
           />
@@ -76,6 +77,7 @@ const FeaturedWorksSection = () => {
             description="AgriCom is my final-year BTech project, an information-focused platform for farmers combining agri news, government schemes, learning resources, and IoT insights. Built on the MERN stack with a full admin dashboard and clean, modern UI."
             height={{ base: '130px', md: '225px', '2xl': '300px' }}
             ctaUrl="https://agricom.onrender.com"
+            githubUrl="https://github.com/harshprajapati8347/AgriComm-Agriculture-Ecommerce-Website"
             isMobile={isMobile}
           />
         </MotionGridItem>
