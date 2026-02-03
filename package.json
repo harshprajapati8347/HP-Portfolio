@@ -1,6 +1,6 @@
 {
   "author": "Harsh Prajapati",
-"description": "Personal Portfolio of Harsh Prajapati",
+  "description": "Personal Portfolio of Harsh Prajapati",
   "name": "hp-portfolio",
   "version": "0.1.0",
   "private": true,
@@ -15,6 +15,7 @@
     "@chakra-ui/react": "^1.6.5",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "@next/third-parties": "^16.1.6",
     "framer-motion": "^4",
     "next": "12.1.0",
     "react": "17.0.2",
