@@ -63,7 +63,7 @@ const Navigation = () => {
           variant="ghost"
           icon={<Icon />}
           boxShadow="none"
-          onClick={toggleColorMode}
+          // onClick={toggleColorMode}
           padding={0}
         />
         <MobileMenu isDarkMode={IsDark} toggle={toggleOpen} isOpen={isOpen} />
@@ -207,7 +207,7 @@ const Navigation = () => {
                 variant="ghost"
                 icon={<Icon />}
                 boxShadow="none"
-                onClick={toggleColorMode}
+                // onClick={toggleColorMode}
               />
             </Box>
           )}
