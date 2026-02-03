@@ -27,9 +27,8 @@ export const Experiences: {
     position: 'Software Developer & Analyst',
     duration: 'Jun 2023 - Present',
     logo: {
-      light:
-        'https://assets.merkle.com/is/content/merkle/merkle-full-logo-dt?ts=1765460889463&dpr=off',
-      dark: 'https://assets.merkle.com/is/content/merkle/merkle-full-logo-dt?ts=1765460889463&dpr=off',
+      light: '/worked_at_logos/merkle_light_logo.png',
+      dark: '/worked_at_logos/merkle_dark_logo.png',
     },
     roles: [
       <>
@@ -65,9 +64,8 @@ export const Experiences: {
     position: 'Software Engineer',
     duration: 'Jan 2023 - Jun 2023',
     logo: {
-      light:
-        'https://blackcoffer.com/_next/static/media/Blackcoffer-logo.9257d004.svg',
-      dark: 'https://blackcoffer.com/_next/static/media/Blackcoffer-logo.9257d004.svg',
+      light: '/worked_at_logos/blackcoffer_light_logo.png',
+      dark: '/worked_at_logos/blackcoffer_dark_logo.png',
     },
     roles: [
       <>
@@ -95,9 +93,8 @@ export const Experiences: {
     position: 'Web Development Intern',
     duration: 'May 2022 - Nov 2022',
     logo: {
-      light:
-        'https://s3.ap-south-1.amazonaws.com/fleeguide.com/images/utils/new+white.png',
-      dark: 'https://s3.ap-south-1.amazonaws.com/fleeguide.com/images/utils/new+white.png',
+      light: '/worked_at_logos/fleeguide_light_logo.png',
+      dark: '/worked_at_logos/fleeguide_dark_logo.png',
     },
     roles: [
       <>
