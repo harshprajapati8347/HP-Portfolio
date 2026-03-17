@@ -1,5 +1,3 @@
-import { Link } from '@chakra-ui/react'
-
 export type Company = 'Merkle' | 'Blackcoffer' | 'Fleeguide'
 
 export type CompanyDetail = {

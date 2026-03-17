@@ -69,9 +69,23 @@ const FeaturedWorksSection = () => {
             isMobile={isMobile}
           />
         </MotionGridItem>
+
         <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
           <FeaturedCard
             idx={3}
+            title="Trimly"
+            src="https://trimly.iamharsh.in/logo.png"
+            description="A modern URL Shortener with Analytics built using React, shadcn/ui, and Supabase. Trimly allows users to create short URLs, track clicks, and view link performance through a clean dashboard. This project was built to explore modern React UI patterns, Supabase BaaS, and shadcn component design."
+            height={{ base: '130px', md: '225px', '2xl': '300px' }}
+            ctaUrl="https://trimly.iamharsh.in"
+            githubUrl="https://github.com/harshprajapati8347/trimly-url-shortner"
+            isMobile={isMobile}
+          />
+        </MotionGridItem>
+
+        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
+          <FeaturedCard
+            idx={4}
             title="AgriCom"
             src="https://agricom.onrender.com/static/media/AgriComLogoHome.c976c4e8f90a1f667bb9.png"
             description="AgriCom is my final-year BTech project, an information-focused platform for farmers combining agri news, government schemes, learning resources, and IoT insights. Built on the MERN stack with a full admin dashboard and clean, modern UI."
