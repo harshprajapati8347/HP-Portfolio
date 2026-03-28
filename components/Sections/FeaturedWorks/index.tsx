@@ -74,7 +74,7 @@ const FeaturedWorksSection = () => {
           <FeaturedCard
             idx={3}
             title="Trimly"
-            src="https://trimly.iamharsh.in/logo.png"
+            src="https://ik.imagekit.io/harshprajapati/HP/trimly-logo.png"
             description="A modern URL Shortener with Analytics built using React, shadcn/ui, and Supabase. Trimly allows users to create short URLs, track clicks, and view link performance through a clean dashboard. This project was built to explore modern React UI patterns, Supabase BaaS, and shadcn component design."
             height={{ base: '130px', md: '225px', '2xl': '300px' }}
             ctaUrl="https://trimly.iamharsh.in"
@@ -92,6 +92,20 @@ const FeaturedWorksSection = () => {
             height={{ base: '130px', md: '225px', '2xl': '300px' }}
             ctaUrl="https://agricom.onrender.com"
             githubUrl="https://github.com/harshprajapati8347/AgriComm-Agriculture-Ecommerce-Website"
+            isMobile={isMobile}
+          />
+        </MotionGridItem>
+
+        {/* This Portfolio Project */}
+        <MotionGridItem colSpan={6} variants={fadeInUpSlower}>
+          <FeaturedCard
+            idx={5}
+            title="iamharsh.in"
+            src="/logo.svg"
+            description="Designed and developed a personal portfolio using Next.js, TypeScript, and Chakra UI, highlighting projects in full-stack development, analytics engineering, and cloud deployments."
+            height={{ base: '130px', md: '225px', '2xl': '300px' }}
+            ctaUrl="https://www.iamharsh.in"
+            githubUrl="https://github.com/harshprajapati8347/HP-Portfolio"
             isMobile={isMobile}
           />
         </MotionGridItem>
