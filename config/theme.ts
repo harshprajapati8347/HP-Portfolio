@@ -4,7 +4,7 @@ import {
   ChakraTheme,
   ThemeComponentProps,
 } from '@chakra-ui/react'
-import { mode } from '@chakra-ui/theme-tools'
+import { mode } from "@chakra-ui/theme-tools";
 
 interface IThemeMode {
   Light: ColorMode

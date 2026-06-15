@@ -40,9 +40,8 @@ const Sidebar = () => {
     >
       <motion.div
         id="sidebarCircle"
-        className={`${styles.sidebar} ${
-          colorMode === 'light' ? styles.dark : ''
-        }`}
+        className={`${styles.sidebar} ${colorMode === 'light' ? styles.dark : ''
+          }`}
         variants={scaleUp}
         style={{ display: display }}
         animate={colorMode === 'dark' ? 'animate' : 'lightMode'}
@@ -140,6 +139,7 @@ const Sidebar = () => {
                 href={socMedia.href}
                 target="_blank"
                 _focus={{ boxShadow: 'none' }}
+                paddingInline={1.5}
               >
                 <Icon w={6} h={6} as={socMedia.icon} color="currentColor" />
               </Link>
@@ -147,7 +147,7 @@ const Sidebar = () => {
           </MotionBox>
         </MotionStack>
       </Container>
-    </MotionBox>
+    </MotionBox >
   )
 }
 

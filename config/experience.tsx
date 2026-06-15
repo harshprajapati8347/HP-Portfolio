@@ -30,26 +30,17 @@ export const Experiences: {
     },
     roles: [
       <>
-        Led end-to-end full-stack and analytics implementations using MERN stack
-        and Next.js, delivering scalable web applications with optimized REST
-        APIs, database architecture, and AWS deployments.
+        Designed and delivered full-stack MERN features across multiple client projects - owning Node.js/Express.js backend API architecture, React.js/Next.js frontend components, and PostgreSQL/MongoDB database schema, reducing feature delivery cycles through modular, reusable service design
       </>,
       <>
-        Delivered advanced analytics engineering across GA4, GTM, GMP APIs, and
-        media platforms, including audits, custom API-driven integrations, and
-        best-practice enforcement to improve data accuracy and business
-        outcomes.
+        Built a real-time data pipeline integrating GA4, GTM, and GMP APIs - automating custom event tagging, data extraction, and alerting workflows that eliminated manual analyst effort and improved reporting accuracy for clients
       </>,
       <>
-        Built automation scripts using JavaScript and Python for GTM and GA4
-        data extraction, metric anomaly alerts, and reporting workflows,
-        improving system reliability and operational efficiency.
+        Led production debugging and root cause analysis for critical incidents; implemented performance fixes and stabilised data pipelines, consistently maintaining deployment reliability across multi-client environments.
+
       </>,
       <>
-        Provided technical consulting for global clients, implementing tracking
-        architecture, web and mobile tagging, cookie and CSP compliance, and
-        complex integrations—contributing to Merkle’s Analytics Agency of the
-        Year 2024 recognition.
+        Optimised REST API response times and frontend load performance through query optimisation, indexing strategies, and React lazy-loading - delivering measurable improvements in application scalability and end-user experience
       </>,
     ],
   },
@@ -63,22 +54,17 @@ export const Experiences: {
     duration: 'Jan 2023 - Jun 2023',
     logo: {
       light: 'https://ik.imagekit.io/harshprajapati/HP/bc-logo-light.png',
-      dark: 'https://blackcoffer.com/_next/static/media/Blackcoffer-logo.9257d004.svg',
+      dark: 'https://blackcoffer.com/_next/static/media/Blackcoffer-logo.2a3ff65b.svg',
     },
     roles: [
       <>
-        Spearheaded development of an AI-powered contract management system
-        using TypeScript, React, Chakra UI, Node.js, and AWS, delivering a
-        production-ready enterprise application.
+        Developed responsive frontend interfaces using React.js and Chakra UI for a B2B contract management platform, improving UI consistency and reducing design-to-dev handoff friction.
       </>,
       <>
-        Led UI revamp and streamlined complex TypeScript codebases, integrated
-        backend services, and designed REST APIs to ensure scalability and
-        maintainability.
+        Integrated RESTful APIs into frontend components, implementing error handling, loading states, and data normalization for seamless user experience.
       </>,
       <>
-        Collaborated with cross-functional teams and global clients, supervising
-        frontend development and accelerating delivery timelines.
+        Collaborated with design and backend teams in an agile workflow to ship features on schedule.
       </>,
     ],
   },
@@ -96,13 +82,10 @@ export const Experiences: {
     },
     roles: [
       <>
-        Enhanced a MERN-based tour and travel platform by implementing new
-        features, refining the codebase, and improving overall performance and
-        scalability.
+        Built and enhanced a MERN stack travel platform, delivering key frontend features including dynamic carousels, itinerary pages, and booking flows using React.js.
       </>,
       <>
-        Worked extensively with React.js, Node.js, and GitHub, contributing to
-        faster releases and improved user experience.
+        Contributed to a faster product launch by owning frontend module delivery and coordinating with backend on API contracts.
       </>,
     ],
   },

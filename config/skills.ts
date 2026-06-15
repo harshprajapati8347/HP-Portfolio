@@ -2,22 +2,14 @@ import { IconType } from 'react-icons'
 import {
   SiJavascript,
   SiTypescript,
-  SiNodeDotJs,
   SiReact,
-  SiNextDotJs,
   SiRedux,
-  SiStyledComponents,
   SiDocker,
   SiGooglecloud,
   SiPostgresql,
   SiMongodb,
-  SiSocketDotIo,
-  SiMaterialUi,
   SiGit,
-  SiGnubash,
-  SiVisualstudiocode,
   SiTailwindcss,
-  SiAmazonaws,
   SiGithubactions,
   SiGoogleanalytics,
   SiGoogletagmanager,
@@ -25,8 +17,18 @@ import {
   SiGithub,
   SiFirebase,
   SiCplusplus,
+  SiExpress,
+  SiFastapi,
+  SiShadcnui,
+  SiLangchain,
+  SiRedis,
+  SiNextdotjs,
+  SiMaterialdesign,
+  SiNodedotjs,
+  SiSocketdotio
 } from 'react-icons/si'
 import { BsQuestionSquare } from 'react-icons/bs'
+import { FaAws } from "react-icons/fa";
 
 export type SkillCategory =
   | 'backend'
@@ -58,10 +60,10 @@ export const Skills: {
     },
     {
       name: 'Next.js',
-      icon: SiNextDotJs,
+      icon: SiNextdotjs,
     },
     {
-      name: 'Redux',
+      name: 'Redux Toolkit',
       icon: SiRedux,
     },
   ],
@@ -72,23 +74,31 @@ export const Skills: {
       icon: SiTailwindcss,
     },
     {
+      name: 'Shadcn/UI',
+      icon: SiShadcnui,
+    },
+    {
       name: 'Chakra UI',
       icon: BsQuestionSquare,
     },
     {
       name: 'Material UI',
-      icon: SiMaterialUi,
-    },
-    {
-      name: 'Styled Components',
-      icon: SiStyledComponents,
+      icon: SiMaterialdesign,
     },
   ],
 
   backend: [
     {
       name: 'Node.js',
-      icon: SiNodeDotJs,
+      icon: SiNodedotjs,
+    },
+    {
+      name: 'Express.js',
+      icon: SiExpress,
+    },
+    {
+      name: "LangChain",
+      icon: SiLangchain,
     },
     {
       name: 'Zod (Schema Validation)',
@@ -99,9 +109,21 @@ export const Skills: {
       icon: BsQuestionSquare,
     },
     {
-      name: 'Socket.IO',
-      icon: SiSocketDotIo,
+      name: 'GraphQL APIs',
+      icon: BsQuestionSquare,
     },
+    {
+      name: "FastAPI",
+      icon: SiFastapi,
+    },
+    {
+      name: 'Socket.IO',
+      icon: SiSocketdotio,
+    },
+    {
+      name: "Redis",
+      icon: SiRedis,
+    }
   ],
 
   database: [
@@ -121,12 +143,8 @@ export const Skills: {
 
   cloud_devops: [
     {
-      name: 'AWS EC2, S3, Lambda. CloudWatch',
-      icon: SiAmazonaws,
-    },
-    {
-      name: 'Firebase',
-      icon: SiFirebase,
+      name: 'AWS EC2, S3, Lambda, CloudWatch',
+      icon: FaAws,
     },
     {
       name: 'Docker',
@@ -135,6 +153,18 @@ export const Skills: {
     {
       name: 'GitHub Actions (CI/CD)',
       icon: SiGithubactions,
+    },
+    {
+      name: 'Firebase',
+      icon: SiFirebase,
+    },
+    {
+      name: 'Git',
+      icon: SiGit,
+    },
+    {
+      name: 'GitHub',
+      icon: SiGithub,
     },
   ],
 
@@ -176,24 +206,7 @@ export const Skills: {
     },
   ],
 
-  productivity: [
-    {
-      name: 'Git',
-      icon: SiGit,
-    },
-    {
-      name: 'GitHub',
-      icon: SiGithub,
-    },
-    {
-      name: 'VS Code',
-      icon: SiVisualstudiocode,
-    },
-    {
-      name: 'Bash',
-      icon: SiGnubash,
-    },
-  ],
+  productivity: [],
   mobile: [
     {
       name: 'React Native',

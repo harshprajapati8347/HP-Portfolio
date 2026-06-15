@@ -8,25 +8,21 @@ import {
   Icon,
   SimpleGrid,
   Box,
-  Tooltip,
   Stack,
   useColorModeValue,
 } from '@chakra-ui/react'
 import {
-  SiDotNet,
-  SiJavascript,
   SiTypescript,
-  SiGraphql,
   SiReact,
-  SiNextDotJs,
-  SiNodeDotJs,
-  SiDocker,
   SiMongodb,
-  SiAmazonaws,
-  SiGoogleanalytics,
+  SiLangchain,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiJavascript,
 } from 'react-icons/si'
-import { GiCoffeePot } from 'react-icons/gi'
 import { IoMdOpen } from 'react-icons/io'
+import { FaAws } from "react-icons/fa";
+
 
 type ISkillSetModal = {
   onOpen(): void
@@ -34,7 +30,6 @@ type ISkillSetModal = {
 
 const Detail = ({ onOpen }: ISkillSetModal) => {
   const emphasis = useColorModeValue('teal.500', 'cyan.200')
-  const currentYear = new Date().getFullYear()
 
   return (
     <Stack
@@ -52,59 +47,51 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
       >
         What i do.
       </Heading>
+
       <Text variant="description">
-        I’m a <b>Software Developer & Analyst</b> with over <b>3+ years</b> of
-        professional experience, currently working at <b>Merkle (Dentsu)</b>. I
-        specialize in building <b>scalable full-stack web applications</b> using
-        JavaScript, TypeScript, the MERN stack, and Next.js, with a strong focus
-        on clean architecture, APIs, and long-term maintainability.
+        Hey, I'm Harsh — a <b>Software Developer</b> based in <b>Surat, India</b>, with <b>3+ years</b> of professional experience building <b>web applications</b> that are fast, maintainable, and built to last.
+        I currently work at <b>Merkle (Dentsu)</b>, where I build production-grade applications, automation workflows, and analytics solutions for global enterprise clients. My core stack is <b>JavaScript, TypeScript, React.js, Next.js, and Node.js</b> — and I'm comfortable owning a product from <b>database design all the way through to deployment</b>.
       </Text>
 
       <Text variant="description">
-        Alongside application development, I work extensively on{' '}
-        <b>analytics engineering</b>, implementing and optimizing{' '}
-        <b>GA4, GTM, and GMP APIs</b> to enable accurate data collection and
-        insight-driven decision-making. I am also capable of building{' '}
-        <b>AI-ready web applications</b>, integrating LLM-based workflows and
-        modern AI services, and I actively explore new technologies to
-        continuously evolve my skill set.
+        I enjoy solving problems that sit somewhere between frontend polish and backend logic — whether it’s designing an API, optimizing a database query, or building a smooth user-facing feature. I’m especially interested in working with teams that value clean code, long-term ownership, and the kind of end-to-end development that makes a product feel cohesive and reliable.
       </Text>
 
       <SimpleGrid columns={2} spacing={4}>
         <List spacing={3}>
           <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiJavascript} color={emphasis} fontSize="2em" />
-            Javascript (ES6+)
-          </ListItem>
-          <ListItem fontSize="small" display="flex" alignItems="center">
             <ListIcon as={SiReact} color={emphasis} fontSize="2em" />
-            React
-          </ListItem>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiNextDotJs} color={emphasis} fontSize="2em" />
-            NextJS
+            React.js
           </ListItem>
           <ListItem fontSize="small" display="flex" alignItems="center">
             <ListIcon as={SiTypescript} color={emphasis} fontSize="2em" />
             Typescript
-          </ListItem>
-        </List>
-        <List spacing={3}>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiNodeDotJs} color={emphasis} fontSize="2em" />
-            Node
           </ListItem>
           <ListItem fontSize="small" display="flex" alignItems="center">
             <ListIcon as={SiMongodb} color={emphasis} fontSize="2em" />
             MongoDB
           </ListItem>
           <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiAmazonaws} color={emphasis} fontSize="2em" />
+            <ListIcon as={FaAws} color={emphasis} fontSize="2em" />
             AWS
           </ListItem>
+        </List>
+        <List spacing={3}>
           <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiGoogleanalytics} color={emphasis} fontSize="2em" />
-            Google Analytics
+            <ListIcon as={SiNextdotjs} color={emphasis} fontSize="2em" />
+            Next.js
+          </ListItem>
+          <ListItem fontSize="small" display="flex" alignItems="center">
+            <ListIcon as={SiJavascript} color={emphasis} fontSize="2em" />
+            Javscript
+          </ListItem>
+          <ListItem fontSize="small" display="flex" alignItems="center">
+            <ListIcon as={SiNodedotjs} color={emphasis} fontSize="2em" />
+            Node.js
+          </ListItem>
+          <ListItem fontSize="small" display="flex" alignItems="center">
+            <ListIcon as={SiLangchain} color={emphasis} fontSize="2em" />
+            Langchain
           </ListItem>
         </List>
         <Box>

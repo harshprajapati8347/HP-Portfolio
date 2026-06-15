@@ -1,6 +1,6 @@
 {
   "author": "Harsh Prajapati",
-"description": "Personal Portfolio of Harsh Prajapati",
+  "description": "Personal Portfolio of Harsh Prajapati",
   "name": "hp-portfolio",
   "version": "0.1.0",
   "private": true,
@@ -11,29 +11,30 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^1.0.14",
-    "@chakra-ui/react": "^1.6.5",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
-    "framer-motion": "^4",
-    "next": "12.1.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-icons": "^4.2.0",
-    "react-intersection-observer": "^8.32.0"
+    "@chakra-ui/icons": "^2.2.4",
+    "@chakra-ui/react": "^2.10.10",
+    "@chakra-ui/theme-tools": "^2.2.10",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "framer-motion": "^12.40.0",
+    "next": "14.2.35",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-icons": "^5.6.0",
+    "react-intersection-observer": "^10.0.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@types/node": "^17.0.21",
-    "@types/react": "17.0.15",
-    "@typescript-eslint/eslint-plugin": "^4.28.5",
-    "@typescript-eslint/parser": "^4.28.5",
-    "eslint": "^7.32.0",
-    "eslint-config-next": "11.0.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.24.0",
-    "prettier": "^2.3.2",
-    "typescript": "4.3.5"
+    "@babel/core": "^7.29.7",
+    "@types/node": "^20.19.43",
+    "@types/react": "18.3.31",
+    "@typescript-eslint/eslint-plugin": "^8.61.0",
+    "@typescript-eslint/parser": "^8.61.0",
+    "eslint": "^10.5.0",
+    "eslint-config-next": "16.2.9",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-react": "^7.37.5",
+    "prettier": "^3.8.4",
+    "typescript": "5.5.2"
   }
 }
