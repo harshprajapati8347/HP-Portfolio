@@ -49,12 +49,19 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
       </Heading>
 
       <Text variant="description">
-        Hey, I'm Harsh — a <b>Software Developer</b> based in <b>Surat, India</b>, with <b>3+ years</b> of professional experience building <b>web applications</b> that are fast, maintainable, and built to last.
-        I currently work at <b>Merkle (Dentsu)</b>, where I build production-grade applications, automation workflows, and analytics solutions for global enterprise clients. My core stack is <b>JavaScript, TypeScript, React.js, Next.js, and Node.js</b> — and I'm comfortable owning a product from <b>database design all the way through to deployment</b>.
+        Hey, I'm Harsh — a Full Stack Developer with 3+ years of experience shipping
+        production web applications. I'm most confident on the backend — REST API design,
+        Node.js, PostgreSQL, MongoDB, AWS, Docker, and CI/CD. I've built systems from
+        schema design through to cloud deployment, and I care about code that's
+        well-structured and built to scale.
       </Text>
 
       <Text variant="description">
-        I enjoy solving problems that sit somewhere between frontend polish and backend logic — whether it’s designing an API, optimizing a database query, or building a smooth user-facing feature. I’m especially interested in working with teams that value clean code, long-term ownership, and the kind of end-to-end development that makes a product feel cohesive and reliable.
+        On the frontend I work with React.js, Next.js, and TypeScript — as an engineer,
+        not a designer. State management, performance optimization, clean API integration.
+        Currently at Merkle (Dentsu), shipping backend tooling and web solutions for
+        global enterprise clients. Next, I'm looking to go deeper on backend systems
+        and cloud infrastructure.
       </Text>
 
       <SimpleGrid columns={2} spacing={4}>

@@ -77,7 +77,6 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
   const cloudDevOpsCols = splitSkills(Skills.cloud_devops)
   const analyticsCols = splitSkills(Skills.analytics)
   const languagesCols = splitSkills(Skills.languages)
-  const productivityCols = splitSkills(Skills.productivity)
   const cssFrameworksCols = splitSkills(Skills.css_frameworks)
   const mobileCols = splitSkills(Skills.mobile)
 
@@ -101,10 +100,6 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
           <SkillList title="Analytics Engineering" columns={analyticsCols} />
           <SkillList title="Languages" columns={languagesCols} />
           <SkillList title="Mobile Engineering" columns={mobileCols} />
-          <SkillList
-            title="Developer Productivity"
-            columns={productivityCols}
-          />
         </ModalBody>
         <ModalFooter>
           <Text fontSize="x-small">*Some micro frameworks not included </Text>

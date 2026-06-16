@@ -91,7 +91,7 @@ const Sidebar = () => {
             className={styles.marginTopSmall}
             variants={fadeInUp}
           >
-            Software Engineer
+            Full Stack Developer (MERN + NextJs)
           </MotionHeading>
 
           <MotionText
@@ -101,14 +101,10 @@ const Sidebar = () => {
             variants={fadeInUp}
             maxWidth={{ base: '100%', lg: '80%' }}
           >
-            Hey! How nice of you to look at my personal site,
-            <Text variant="emphasis" as="span">
-              {' '}
-              Thank you!
-            </Text>
-            <br />I am a software engineer specializing in end-to-end web
-            application development, from modern UI to backend APIs and cloud
-            deployment.
+            Hey! Glad you're here.
+            <br />
+            I build and ship complete web applications — reliable backend systems, clean REST APIs, and functional frontends that are properly optimized and maintainable. Currently doing that full-time at Merkle (Dentsu).
+            Looking to go deeper on backend systems and cloud infrastructure in my next role.
           </MotionText>
           <MotionButton
             size="lg"
