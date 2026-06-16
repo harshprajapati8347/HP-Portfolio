@@ -1,3 +1,5 @@
+import { Variants } from 'framer-motion'
+
 const DURATIONS = {
   VeryFast: 0.3,
   Fast: 0.6,
@@ -5,9 +7,9 @@ const DURATIONS = {
   Slow: 1.2,
   VerySlow: 1.8,
 }
-const easing = [0.6, -0.05, 0.01, 0.99]
+const easing = [0.6, -0.05, 0.01, 0.99] as const
 
-const fadeInUp = {
+const fadeInUp: Variants = {
   initial: {
     y: 60,
     opacity: 0,
@@ -22,7 +24,7 @@ const fadeInUp = {
   },
 }
 
-const fadeInUpSlower = {
+const fadeInUpSlower: Variants = {
   initial: {
     y: 80,
     opacity: 0,
@@ -37,7 +39,7 @@ const fadeInUpSlower = {
   },
 }
 
-const letterSpace = {
+const letterSpace: Variants = {
   initial: {
     opacity: 0,
   },
@@ -51,7 +53,7 @@ const letterSpace = {
   },
 }
 
-const simpleOpacity = {
+const simpleOpacity: Variants = {
   initial: {
     opacity: 0,
   },
@@ -64,7 +66,7 @@ const simpleOpacity = {
   },
 }
 
-const scaleUp = {
+const scaleUp: Variants = {
   initial: {
     scale: 0,
     opacity: 0,
@@ -87,7 +89,7 @@ const scaleUp = {
   },
 }
 
-const menuAnim = {
+const menuAnim: Variants = {
   show: {
     y: 0,
     opacity: 1,
@@ -106,7 +108,7 @@ const menuAnim = {
   },
 }
 
-const avatarAnimation = {
+const avatarAnimation: Variants = {
   initial: {
     opacity: 0,
     y: 60,
@@ -124,14 +126,14 @@ const avatarAnimation = {
   },
 }
 
-const stagger = {
+const stagger: Variants = {
   animate: {
     transition: {
       staggerChildren: 0.1,
     },
   },
 }
-const galleryStagger = {
+const galleryStagger: Variants = {
   animate: {
     transition: {
       staggerChildren: 0.2,

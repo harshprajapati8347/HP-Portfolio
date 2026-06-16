@@ -12,7 +12,7 @@ import {
   Stack,
   useColorModeValue,
 } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
+import { motion, backOut } from 'framer-motion'
 import styles from './styles.module.css'
 import { easing, DURATIONS } from 'config/animations'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
@@ -40,7 +40,7 @@ const variants = {
     opacity: 1,
     transition: {
       duration: DURATIONS.Fast,
-      ease: 'backOut',
+      ease: backOut,
     },
   },
   tap: {
@@ -52,7 +52,6 @@ const variants = {
     },
   },
 }
-
 const MotionImage = motion(Image)
 
 const ProjectDescription = ({

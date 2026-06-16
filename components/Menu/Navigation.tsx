@@ -38,8 +38,9 @@ const Navigation = () => {
   const btnClassName = `${styles.blogBtn} ${!IsDark && styles.dark}`
   const Icon = IsDark ? SunIcon : MoonIcon
   const onMenuItemClick = useCallback(
-    (e) => {
+    (e: React.MouseEvent<HTMLElement>) => {
       e.stopPropagation()
+
       if (isMobile) {
         toggleOpen()
       }
@@ -87,14 +88,37 @@ const Navigation = () => {
             !isMobile && scrollDirection === ScrollDirection.Down
               ? '12%'
               : '100%',
-          top: !isOpen && isMobile && '-100vh',
-          opacity: !isOpen && isMobile && '0',
-          left: isOpen && isMobile && 0,
+
+          top:
+            !isOpen && isMobile
+              ? '-100vh'
+              : undefined,
+
+          opacity:
+            !isOpen && isMobile
+              ? 0
+              : undefined,
+
+          left:
+            isOpen && isMobile
+              ? 0
+              : undefined,
         }}
-        borderColor={isOpen && isMobile && borderColor}
-        borderBottomWidth={isOpen && isMobile && '1px'}
-        paddingBottom={isOpen && isMobile && '1px'}
-        ease={easing}
+        borderColor={
+          isOpen && isMobile
+            ? borderColor
+            : undefined
+        }
+        borderBottomWidth={
+          isOpen && isMobile
+            ? '1px'
+            : undefined
+        }
+        paddingBottom={
+          isOpen && isMobile
+            ? '1px'
+            : undefined
+        }
         variants={menuAnim}
         marginTop={0}
         paddingTop={1}

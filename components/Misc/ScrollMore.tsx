@@ -28,7 +28,7 @@ const scrollMoreVariants: Variants = {
     transition: {
       duration: 1.6,
       ease: 'easeInOut',
-      loop: Infinity,
+      repeat: Infinity,
     },
   },
 }

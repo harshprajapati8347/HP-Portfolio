@@ -66,7 +66,6 @@ const GetInTouch = () => {
       </Text>
 
       <Box
-        spacing={0.5}
         textAlign="center"
         fontFamily="monospace"
         paddingTop={{ base: 10, lg: 20, xl: 20 }}

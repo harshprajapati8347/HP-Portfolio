@@ -56,7 +56,7 @@ const Sidebar = () => {
         <MotionStack variants={stagger} spacing={6} w="100">
           <MotionText
             variants={fadeInUp}
-            delay={1}
+            transition={{ delay: 1 }}
             variant="accent"
             fontWeight="light"
           >
@@ -119,16 +119,16 @@ const Sidebar = () => {
             fontSize="sm"
             width="120px"
             variants={simpleOpacity}
-            as={'a'}
-            href="mailto:harshprajapati0123@gmail.com"
-            target="_blank"
+            onClick={() =>
+              window.open('mailto:harshprajapati0123@gmail.com', '_blank')
+            }
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
             Get in touch!
           </MotionButton>
 
-          <MotionBox d="flex" variants={simpleOpacity}>
+          <MotionBox display="flex" variants={simpleOpacity}>
             {SocialMedias.map((socMedia) => (
               <Link
                 variant="description"
@@ -139,7 +139,6 @@ const Sidebar = () => {
                 href={socMedia.href}
                 target="_blank"
                 _focus={{ boxShadow: 'none' }}
-                paddingInline={1.5}
               >
                 <Icon w={6} h={6} as={socMedia.icon} color="currentColor" />
               </Link>
@@ -147,7 +146,7 @@ const Sidebar = () => {
           </MotionBox>
         </MotionStack>
       </Container>
-    </MotionBox >
+    </MotionBox>
   )
 }
 

@@ -46,7 +46,7 @@ const Avatar = () => {
         marginBottom={{ base: 10, md: 0, lg: 0 }}
         initial="initial"
         animate={'animate'}
-        variants={avatarAnimation}
+        variants={avatarAnimation as any}
         exit={{ opacity: 0 }}
       >
         <ChkImage

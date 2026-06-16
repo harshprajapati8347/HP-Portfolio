@@ -7,7 +7,7 @@ import FavIconProvider from 'components/Misc/FavIconProvider'
 
 function HPSite({ Component, pageProps }: AppProps): JSX.Element {
   return (
-    <AnimatePresence exitBeforeEnter>
+    <AnimatePresence mode="wait">
       <ChakraProvider theme={theme}>
         <FavIconProvider>
           <Component {...pageProps} />
