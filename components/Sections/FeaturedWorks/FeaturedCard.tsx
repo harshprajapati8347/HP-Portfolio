@@ -79,7 +79,7 @@ const ProjectDescription = ({
   >
     <Stack spacing={1} width="100%">
       <Text
-        fontSize={{ base: 'md', md: 'large', '2xl': 'xx-large' }}
+        fontSize={{ base: 'md', md: 'large', '2xl': 'x-large' }}
         fontWeight="bold"
         letterSpacing={2}
         width="90%"
