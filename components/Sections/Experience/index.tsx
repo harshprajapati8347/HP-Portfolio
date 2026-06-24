@@ -20,11 +20,11 @@ const DetailSection = () => (
       to hone my skills and talents. These companies will always have a special
       place in my heart. Currently I am working with{' '}
       <Link
-        href="https://www.merkle.com/en.html"
+        href="https://www.dentsu.com/in/en"
         target="_blank"
         rel="noreferrer"
       >
-        Merkle
+        Dentsu
       </Link>
       .
     </Text>

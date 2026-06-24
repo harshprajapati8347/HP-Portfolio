@@ -1,4 +1,4 @@
-export type Company = 'Merkle' | 'Blackcoffer' | 'Fleeguide'
+export type Company = 'Dentsu' | 'Blackcoffer' | 'Fleeguide'
 
 export type CompanyDetail = {
   name: string
@@ -17,16 +17,16 @@ export type CompanyDetail = {
 export const Experiences: {
   [key in Company]: CompanyDetail
 } = {
-  Merkle: {
-    name: 'Merkle',
-    longName: 'Merkle - A Dentsu Company',
-    subDetail: 'Adverstising & Analytics',
-    url: 'https://www.merkle.com/',
-    position: 'Software Developer & Analyst',
+  Dentsu: {
+    name: 'Dentsu',
+    longName: 'Dentsu',
+    subDetail: 'Advertising Services',
+    url: 'https://www.dentsu.com/in/en',
+    position: 'Software Developer',
     duration: 'Jun 2023 - Present',
     logo: {
-      light: 'https://ik.imagekit.io/harshprajapati/HP/merkle-logo-light.png',
-      dark: 'https://assets.merkle.com/is/content/merkle/merkle-full-logo-dt?ts=1765460889463&dpr=off',
+      light: '/dentsu-light-theme.jpeg',
+      dark: '/dentsu-dark-theme.png',
     },
     roles: [
       <>
@@ -92,7 +92,7 @@ export const Experiences: {
 }
 
 export const ExperiencesList = [
-  Experiences.Merkle,
+  Experiences.Dentsu,
   Experiences.Blackcoffer,
   Experiences.Fleeguide,
 ]

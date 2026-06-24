@@ -11,6 +11,7 @@ import {
   Container,
   Stack,
   useColorModeValue,
+  GridItem,
 } from '@chakra-ui/react'
 import { motion, backOut } from 'framer-motion'
 import styles from './styles.module.css'
@@ -101,7 +102,7 @@ const ProjectDescription = ({
       />
     </Stack>
     <Text
-      fontSize="smaller"
+      fontSize={{ base: 'sm', md: 'md', '2xl': 'lg' }}
       variant="accentAlternative"
       width="90%"
       alignSelf={isLeft ? 'flex-end' : 'flex-start'}
@@ -115,6 +116,7 @@ const ProjectDescription = ({
       spacing={{ base: 3, md: 4 }}
       alignSelf={isLeft ? 'flex-end' : 'flex-start'}
       alignItems="center"
+      paddingY={{ base: 3, md: 4 }}
     >
       {/* Live Button */}
       <Button
@@ -222,21 +224,23 @@ const FeaturedCard = ({
       borderWidth="1px"
     >
       <SimpleGrid
-        columns={{ base: 1, md: 2 }}
+        columns={{ base: 1, md: 3 }}
         spacing={{ base: 3, md: 0 }}
         display={{ base: 'flex', md: 'grid' }}
         flexDirection={{ base: 'column-reverse', md: 'initial' }}
       >
-        {isLeftImage && <CoverImage />}
-        <ProjectDescription
-          idx={idx}
-          title={title}
-          description={description}
-          ctaUrl={ctaUrl}
-          githubUrl={githubUrl}
-          isLeft={isLeftImage}
-        />
-        {!isLeftImage && <CoverImage />}
+        {isLeftImage && <GridItem colSpan={1}><CoverImage /> </GridItem>}
+        <GridItem colSpan={2}>
+          <ProjectDescription
+            idx={idx}
+            title={title}
+            description={description}
+            ctaUrl={ctaUrl}
+            githubUrl={githubUrl}
+            isLeft={isLeftImage}
+          />
+        </GridItem>
+        {!isLeftImage && <GridItem colSpan={1}><CoverImage />  </GridItem>}
       </SimpleGrid>
     </Box>
   )

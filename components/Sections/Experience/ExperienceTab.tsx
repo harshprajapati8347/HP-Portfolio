@@ -134,7 +134,7 @@ const ExperienceTab = () => {
                       color={emphasis}
                       display="block"
                     />
-                    <Text as="span" display="block" variant="description">
+                    <Text as="span" display="block" variant="description" fontSize={"sm"}>
                       {roleDesc}
                     </Text>
                   </ListItem>

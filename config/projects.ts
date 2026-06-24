@@ -21,6 +21,15 @@ const projects: Project[] = [
     },
     {
         idx: 2,
+        title: 'CreatorForge',
+        src: '/creatorforge.png',
+        description:
+            'A client-side YouTube thumbnail generator powered by Gemini AI. Your API key, images, and prompts never leave the browser — no accounts, no cloud storage, just fast local generation.',
+        ctaUrl: 'https://creatorforge.iamharsh.in',
+        githubUrl: 'https://github.com/harshprajapati8347/creatorforge-ai',
+    },
+    {
+        idx: 3,
         title: 'WealthFox',
         src: 'https://res.cloudinary.com/cloudwithharsh/image/upload/v1767337005/WealthFOX/logow_original_b48e5t.png',
         description:
@@ -28,16 +37,16 @@ const projects: Project[] = [
         ctaUrl: 'https://wealthfox.in',
     },
     {
-        idx: 3,
+        idx: 4,
         title: 'Trimly',
         src: 'https://ik.imagekit.io/harshprajapati/HP/trimly-logo.png',
         description:
-            'A modern URL Shortener with Analytics built using React, shadcn/ui, and Supabase. Trimly allows users to create short URLs, track clicks, and view link performance through a clean dashboard. This project was built to explore modern React UI patterns, Supabase BaaS, and shadcn component design.',
+            'Trimly was built to explore Supabase and shadcn/ui in a real project. It\'s a URL shortener with a clean analytics dashboard where users can create short links, track clicks, and view link performance.',
         ctaUrl: 'https://trimly.iamharsh.in',
         githubUrl: 'https://github.com/harshprajapati8347/trimly-url-shortner',
     },
     {
-        idx: 4,
+        idx: 5,
         title: 'AgriCom',
         src: 'https://agricom.onrender.com/static/media/AgriComLogoHome.c976c4e8f90a1f667bb9.png',
         description:
@@ -46,7 +55,7 @@ const projects: Project[] = [
         githubUrl: 'https://github.com/harshprajapati8347/AgriComm-Agriculture-Ecommerce-Website',
     },
     {
-        idx: 5,
+        idx: 6,
         title: 'iamharsh.in',
         src: '/logo.svg',
         description:
@@ -54,15 +63,7 @@ const projects: Project[] = [
         ctaUrl: 'https://www.iamharsh.in',
         githubUrl: 'https://github.com/harshprajapati8347/HP-Portfolio',
     },
-    {
-        idx: 6,
-        title: 'CreatorForge',
-        src: '/creatorforge.png',
-        description:
-            'A client-side YouTube thumbnail generator powered by Gemini AI. Your API key, images, and prompts never leave the browser — no accounts, no cloud storage, just fast local generation.',
-        ctaUrl: 'https://creatorforge.iamharsh.in',
-        githubUrl: 'https://github.com/harshprajapati8347/creatorforge-ai',
-    },
+
 ]
 
 export default projects

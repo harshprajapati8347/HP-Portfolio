@@ -103,7 +103,7 @@ const Sidebar = () => {
           >
             Hey! Glad you're here.
             <br />
-            I build and ship complete web applications — reliable backend systems, clean REST APIs, and functional frontends that are properly optimized and maintainable. Currently doing that full-time at Merkle (Dentsu).
+            I build and ship complete web applications — reliable backend systems, clean REST APIs, and functional frontends that are properly optimized and maintainable. Currently doing that full-time at Dentsu.
             Looking to go deeper on backend systems and cloud infrastructure in my next role.
           </MotionText>
           <MotionButton

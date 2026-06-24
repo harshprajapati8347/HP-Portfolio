@@ -59,7 +59,7 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
       <Text variant="description">
         On the frontend I work with React.js, Next.js, and TypeScript — as an engineer,
         not a designer. State management, performance optimization, clean API integration.
-        Currently at Merkle (Dentsu), shipping backend tooling and web solutions for
+        Currently at Dentsu, shipping backend tooling and web solutions for
         global enterprise clients. Next, I'm looking to go deeper on backend systems
         and cloud infrastructure.
       </Text>
