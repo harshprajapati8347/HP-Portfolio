@@ -21,6 +21,14 @@ const projects: Project[] = [
     },
     {
         idx: 2,
+        title: "NotebookLM Clone",
+        src: "/notebooklm-icon.png",
+        description: "A multi-notebook RAG research assistant — add PDFs, URLs, YouTube videos, or transcripts as sources, then get streamed, grounded answers with click-through citations that jump to the exact page, timestamp, or paragraph they came from.",
+        ctaUrl: "https://notebooklm.iamharsh.in",
+        githubUrl: "https://github.com/harshprajapati8347/NotebookLM-Clone",
+    },
+    {
+        idx: 3,
         title: 'CreatorForge',
         src: '/creatorforge.png',
         description:
@@ -29,7 +37,7 @@ const projects: Project[] = [
         githubUrl: 'https://github.com/harshprajapati8347/creatorforge-ai',
     },
     {
-        idx: 3,
+        idx: 4,
         title: 'WealthFox',
         src: 'https://res.cloudinary.com/cloudwithharsh/image/upload/v1767337005/WealthFOX/logow_original_b48e5t.png',
         description:
@@ -37,7 +45,7 @@ const projects: Project[] = [
         ctaUrl: 'https://wealthfox.in',
     },
     {
-        idx: 4,
+        idx: 5,
         title: 'Trimly',
         src: 'https://ik.imagekit.io/harshprajapati/HP/trimly-logo.png',
         description:
@@ -46,16 +54,7 @@ const projects: Project[] = [
         githubUrl: 'https://github.com/harshprajapati8347/trimly-url-shortner',
     },
     {
-        idx: 5,
-        title: 'AgriCom',
-        src: 'https://agricom.onrender.com/static/media/AgriComLogoHome.c976c4e8f90a1f667bb9.png',
-        description:
-            'AgriCom is my final-year BTech project, an information-focused platform for farmers combining agri news, government schemes, learning resources, and IoT insights. Built on the MERN stack with a full admin dashboard and clean, modern UI.',
-        ctaUrl: 'https://agricom.onrender.com',
-        githubUrl: 'https://github.com/harshprajapati8347/AgriComm-Agriculture-Ecommerce-Website',
-    },
-    {
-        idx: 6,
+        idx: 7,
         title: 'iamharsh.in',
         src: '/logo.svg',
         description:
