@@ -14,18 +14,19 @@ const projects: Project[] = [
         title: 'Curiomart',
         src: 'https://curiomart.iamharsh.in/assets/logo-DXsWE0_a.png',
         description:
-            "A scalable multi-vendor e-commerce CMS built using the MERN stack. Features include role-based authentication, real-time chat with Socket.IO, Stripe payment integration, and a responsive admin dashboard. Deployed on AWS EC2 for production scalability.",
+            'A multi-vendor e-commerce CMS built using the MERN stack. Features include role-based authentication, real-time chat with Socket.IO, Stripe payment integration, and a responsive admin dashboard. Deployed on AWS EC2 for production scalability.',
         ctaUrl: 'https://curiomart.iamharsh.in',
         githubUrl: 'https://github.com/harshprajapati8347/CurioMart-Ecommerce',
         objectPosition: 'right 20%',
     },
     {
         idx: 2,
-        title: "NotebookLM Clone",
-        src: "/notebooklm-icon.png",
-        description: "A multi-notebook RAG research assistant — add PDFs, URLs, YouTube videos, or transcripts as sources, then get streamed, grounded answers with click-through citations that jump to the exact page, timestamp, or paragraph they came from.",
-        ctaUrl: "https://notebooklm.iamharsh.in",
-        githubUrl: "https://github.com/harshprajapati8347/NotebookLM-Clone",
+        title: 'SourceLab',
+        src: '/sourcelab-icon.png',
+        description:
+            'A multi-workspace RAG research assistant — add PDFs, URLs, YouTube videos, or text as sources, then get streamed, grounded answers with click-through citations that jump to the exact page, timestamp, or paragraph they came from.',
+        ctaUrl: 'https://sourcelab.iamharsh.in',
+        githubUrl: 'https://github.com/harshprajapati8347/SourceLab',
     },
     {
         idx: 3,
@@ -49,7 +50,7 @@ const projects: Project[] = [
         title: 'Trimly',
         src: 'https://ik.imagekit.io/harshprajapati/HP/trimly-logo.png',
         description:
-            'Trimly was built to explore Supabase and shadcn/ui in a real project. It\'s a URL shortener with a clean analytics dashboard where users can create short links, track clicks, and view link performance.',
+            "Trimly was built to explore Supabase and shadcn/ui in a real project. It's a URL shortener with a clean analytics dashboard where users can create short links, track clicks, and view link performance.",
         ctaUrl: 'https://trimly.iamharsh.in',
         githubUrl: 'https://github.com/harshprajapati8347/trimly-url-shortner',
     },
@@ -62,7 +63,6 @@ const projects: Project[] = [
         ctaUrl: 'https://www.iamharsh.in',
         githubUrl: 'https://github.com/harshprajapati8347/HP-Portfolio',
     },
-
 ]
 
 export default projects
