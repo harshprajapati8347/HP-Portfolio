@@ -1,8 +1,12 @@
+'use client'
+
 import { memo } from 'react'
 import { Heading, Text, Stack, Link, Icon, Box } from '@chakra-ui/react'
-import { motion, Variants } from 'framer-motion'
+import { motion, Variants, useReducedMotion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import { RiHeartPulseFill, RiGithubFill, RiCopyrightLine } from 'react-icons/ri'
+import { site } from 'config/site'
+
 const rimuruVariant: Variants = {
   shake: {
     rotate: [0, 15, 0, -15, 0],
@@ -26,6 +30,8 @@ const rimuruVariant: Variants = {
 
 const GetInTouch = () => {
   const [ref, inView] = useInView()
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <Stack
       width={{ base: '99%', lg: '60%', xl: '75%' }}
@@ -34,35 +40,32 @@ const GetInTouch = () => {
       as="footer"
     >
       <Heading
+        as="h2"
         size="2xl"
         style={{
           fontVariantCaps: 'small-caps',
         }}
       >
-        Say hi!{' '}
-        <Text as="span" fontSize="2xl" variant="emphasis">
+        {site.contact.heading}{' '}
+        <Text as="span" fontSize="2xl" variant="emphasis" aria-hidden="true">
           <motion.div
             style={{ display: 'inline-block' }}
             variants={rimuruVariant}
             ref={ref}
-            animate={inView ? ['shake', 'jump'] : false}
+            animate={
+              inView && !shouldReduceMotion ? ['shake', 'jump'] : false
+            }
           >
             (⁀ᗢ⁀)
           </motion.div>
         </Text>
       </Heading>
       <Text variant="description">
-        I’m always happy to connect and discuss development, analytics, product
-        ideas, or collaboration opportunities. Feel free to reach out via social
-        media or{' '}
-        <Link
-          href="mailto:harshprajapati0123@gmail.com"
-          target="_blank"
-          rel="noreferrer"
-        >
-          email
-        </Link>
-        —I’ll get back as soon as I can.
+        {site.contact.bodyBefore}{' '}
+        <Link href={`mailto:${site.email}`} rel="noreferrer">
+          {site.contact.emailLabel}
+        </Link>{' '}
+        {site.contact.bodyAfter}
       </Text>
 
       <Box
@@ -75,14 +78,14 @@ const GetInTouch = () => {
           variant="description"
           textDecoration="none"
           rel="noreferrer"
-          href="https://github.com/harshprajapati8347"
+          href={site.githubProfile}
           target="_blank"
-          _focus={{ boxShadow: 'none' }}
         >
           <Text as="span">
             <Icon as={RiGithubFill} h={6} w={6} /> <br />
-            Designed and Made with <Icon as={RiHeartPulseFill} /> <br />
-            Harsh Prajapati <Icon as={RiCopyrightLine} /> 2026
+            {site.footer.line} <Icon as={RiHeartPulseFill} aria-hidden /> <br />
+            {site.footer.name} <Icon as={RiCopyrightLine} aria-hidden />{' '}
+            {site.copyrightYear}
           </Text>
         </Link>
       </Box>

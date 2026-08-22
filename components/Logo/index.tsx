@@ -1,48 +1,46 @@
+'use client'
+
 import { memo, useState } from 'react'
-import { useColorMode, Image, useBreakpointValue } from '@chakra-ui/react'
+import { useColorMode, useBreakpointValue } from '@chakra-ui/react'
 import Link from 'next/link'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import styles from './styles.module.css'
 import { ThemeMode, mobileBreakpointsMap } from 'config/theme'
 import { simpleOpacity } from 'config/animations'
+import { site } from 'config/site'
+import OptimizedImage from 'components/OptimizedImage'
 
 const Logo = () => {
   const { colorMode } = useColorMode()
   const [isLogoLoaded, setLogoLoaded] = useState(false)
-  const MotionImage = motion(Image)
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
+  const shouldReduceMotion = useReducedMotion()
+  const size = isMobile ? 30 : 50
+
   return (
     <AnimatePresence>
-      <Link href="/" passHref>
-        {colorMode === ThemeMode.Dark ? (
-          <MotionImage
-            className={!isMobile ? styles.logo : ''}
-            boxSize={isMobile ? '30px' : '50px'}
-            objectFit="cover"
-            src="./logo.svg"
-            alt="Harsh Prajapati Logo"
-            fallbackSrc="./logo.svg"
-            variants={simpleOpacity}
-            initial="initial"
-            animate={isLogoLoaded && 'animate'}
+      <Link href="/" aria-label={`${site.name} home`}>
+        <motion.span
+          className={!isMobile ? styles.logo : undefined}
+          style={{ display: 'inline-flex' }}
+          variants={simpleOpacity}
+          initial={shouldReduceMotion ? false : 'initial'}
+          animate={isLogoLoaded || shouldReduceMotion ? 'animate' : 'initial'}
+        >
+          <OptimizedImage
+            src={site.logo}
+            alt={`${site.name} logo`}
+            width={size}
+            height={size}
+            style={{
+              objectFit: 'cover',
+              width: size,
+              height: size,
+              filter: colorMode === ThemeMode.Light ? 'none' : undefined,
+            }}
             onLoad={() => setLogoLoaded(true)}
-            zIndex={2}
           />
-        ) : (
-          <MotionImage
-            className={!isMobile ? styles.logo : ''}
-            boxSize={isMobile ? '30px' : '50px'}
-            objectFit="cover"
-            src="./logo.svg"
-            fallbackSrc="./logo.svg"
-            alt="Harsh Prajapati Logo"
-            variants={simpleOpacity}
-            initial="initial"
-            animate={isLogoLoaded && 'animate'}
-            onLoad={() => setLogoLoaded(true)}
-            zIndex={2}
-          />
-        )}
+        </motion.span>
       </Link>
     </AnimatePresence>
   )

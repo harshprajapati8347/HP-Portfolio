@@ -1,16 +1,18 @@
+'use client'
+
 import {
   Stack,
   Heading,
   Text,
   Button,
-  useColorMode,
   Container,
   Link,
   Box,
   Icon,
   useBreakpointValue,
+  useColorMode,
 } from '@chakra-ui/react'
-import { motion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import styles from './styles.module.css'
 import {
   fadeInUp,
@@ -20,19 +22,23 @@ import {
   scaleUp,
 } from 'config/animations'
 import { SocialMedias } from 'config/sidebar'
+import { site } from 'config/site'
+
+const MotionHeading = motion.create(Heading)
+const MotionText = motion.create(Text)
+const MotionStack = motion.create(Stack)
+const MotionButton = motion.create(Button)
+const MotionBox = motion.create(Box)
+
 const Sidebar = () => {
   const { colorMode } = useColorMode()
   const display = useBreakpointValue({ base: 'none', lg: 'block' })
   const surNameSize = useBreakpointValue({ base: '3xl', md: '4xl' })
-  const MotionHeading = motion(Heading)
-  const MotionText = motion(Text)
-  const MotionStack = motion(Stack)
-  const MotionButton = motion(Button)
-  const MotionBox = motion(Box)
+  const shouldReduceMotion = useReducedMotion()
 
   return (
     <MotionBox
-      initial="initial"
+      initial={shouldReduceMotion ? false : 'initial'}
       animate="animate"
       position={{ xl: 'fixed' }}
       maxWidth={{ xl: '34%' }}
@@ -40,12 +46,13 @@ const Sidebar = () => {
     >
       <motion.div
         id="sidebarCircle"
-        className={`${styles.sidebar} ${colorMode === 'light' ? styles.dark : ''
-          }`}
+        className={`${styles.sidebar} ${
+          colorMode === 'light' ? styles.dark : ''
+        }`}
         variants={scaleUp}
-        style={{ display: display }}
+        style={{ display }}
         animate={colorMode === 'dark' ? 'animate' : 'lightMode'}
-      ></motion.div>
+      />
       <Container
         padding={0}
         margin={0}
@@ -56,42 +63,42 @@ const Sidebar = () => {
         <MotionStack variants={stagger} spacing={6} w="100">
           <MotionText
             variants={fadeInUp}
-            transition={{ delay: 1 }}
+            transition={{ delay: shouldReduceMotion ? 0 : 1 }}
             variant="accent"
             fontWeight="light"
           >
-            Hey there! I am
+            {site.hero.greeting}
           </MotionText>
           <MotionHeading
-            as="h2"
+            as="h1"
             size={surNameSize}
             variant="emphasis"
             className={styles.marginTopForce}
             textTransform="uppercase"
             variants={letterSpace}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            whileHover={shouldReduceMotion ? undefined : { scale: 1.1 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}
           >
-            Harsh
+            {site.firstName}
           </MotionHeading>
           <MotionHeading
-            as="h1"
+            as="p"
             size="2xl"
             paddingRight={{ lg: '20' }}
             textTransform="uppercase"
             variants={fadeInUp}
           >
-            Prajapati
+            {site.lastName}
           </MotionHeading>
 
           <MotionHeading
-            as="h3"
+            as="p"
             size="md"
             variant="emphasis"
             className={styles.marginTopSmall}
             variants={fadeInUp}
           >
-            Full Stack Developer (MERN + NextJs)
+            {site.role}
           </MotionHeading>
 
           <MotionText
@@ -101,10 +108,9 @@ const Sidebar = () => {
             variants={fadeInUp}
             maxWidth={{ base: '100%', lg: '80%' }}
           >
-            Hey! Glad you're here.
+            {site.hero.body[0]}
             <br />
-            I build and ship complete web applications — reliable backend systems, clean REST APIs, and functional frontends that are properly optimized and maintainable. Currently doing that full-time at Dentsu.
-            Looking to go deeper on backend systems and cloud infrastructure in my next role.
+            {site.hero.body[1]}
           </MotionText>
           <MotionButton
             size="lg"
@@ -115,13 +121,13 @@ const Sidebar = () => {
             fontSize="sm"
             width="120px"
             variants={simpleOpacity}
-            onClick={() =>
-              window.open('mailto:harshprajapati0123@gmail.com', '_blank')
-            }
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
+            onClick={() => {
+              window.location.href = `mailto:${site.email}`
+            }}
+            whileHover={shouldReduceMotion ? undefined : { scale: 1.1 }}
+            whileTap={shouldReduceMotion ? undefined : { scale: 0.9 }}
           >
-            Get in touch!
+            {site.hero.ctaLabel}
           </MotionButton>
 
           <MotionBox display="flex" variants={simpleOpacity}>
@@ -134,7 +140,6 @@ const Sidebar = () => {
                 width={8}
                 href={socMedia.href}
                 target="_blank"
-                _focus={{ boxShadow: 'none' }}
               >
                 <Icon w={6} h={6} as={socMedia.icon} color="currentColor" />
               </Link>

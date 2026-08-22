@@ -1,0 +1,104 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 200;
+  padding: 0.75rem 1rem;
+  background: #121212;
+  color: #97dffc;
+  border-radius: 0.25rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+body::-webkit-scrollbar {
+  width: 0.4em;
+}
+
+body::-webkit-scrollbar-track-piece {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: var(--chakra-colors-gray-600);
+  border-radius: 1em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html,
+  body {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body::-webkit-scrollbar {
+    width: 0;
+  }
+
+  body::-webkit-scrollbar-track-piece {
+    width: 0;
+  }
+}
+
+@media (max-width: 1279px) {
+  #mainGrid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 0);
+  }
+
+  .contentRow {
+    min-height: auto !important;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+  body {
+    overflow-y: scroll !important;
+  }
+
+  #mainGrid {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 0);
+  }
+
+  main {
+    overflow-y: unset !important;
+  }
+
+  #sidebarCircle {
+    display: none !important;
+  }
+
+  .contentRow {
+    min-height: auto !important;
+    padding: var(--chakra-space-14);
+    justify-content: center;
+  }
+}

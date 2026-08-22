@@ -1,4 +1,5 @@
-/* eslint-disable react/no-multi-comp */
+'use client'
+
 import {
   Heading,
   Modal,
@@ -17,7 +18,13 @@ import {
   Text,
 } from '@chakra-ui/react'
 import styles from './styles.module.css'
-import { Skill, Skills, splitSkills } from 'config/skills'
+import {
+  Skill,
+  Skills,
+  skillSectionTitles,
+  splitSkills,
+  SkillCategory,
+} from 'config/skills'
 
 type ISkillSetModal = {
   isOpen: boolean
@@ -35,7 +42,7 @@ const SkillList = ({
   const [colOne, colTwo = []] = columns
   return (
     <>
-      <Heading as="div" size="sm" paddingBottom={1} variant="description">
+      <Heading as="h3" size="sm" paddingBottom={1} variant="description">
         {title}
       </Heading>
       <Divider marginBottom={4} />
@@ -70,15 +77,9 @@ const SkillList = ({
     </>
   )
 }
+
 const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
-  const backendCols = splitSkills(Skills.backend)
-  const frontendCols = splitSkills(Skills.frontend)
-  const databaseCols = splitSkills(Skills.database)
-  const cloudDevOpsCols = splitSkills(Skills.cloud_devops)
-  const analyticsCols = splitSkills(Skills.analytics)
-  const languagesCols = splitSkills(Skills.languages)
-  const cssFrameworksCols = splitSkills(Skills.css_frameworks)
-  const mobileCols = splitSkills(Skills.mobile)
+  const categories = Object.keys(Skills) as SkillCategory[]
 
   return (
     <Modal
@@ -92,17 +93,22 @@ const SkillSetModal = ({ isOpen, onClose }: ISkillSetModal) => {
         <ModalHeader>Full Skill Set List</ModalHeader>
         <ModalCloseButton />
         <ModalBody className={styles.skillModal}>
-          <SkillList title="Frontend Engineering" columns={frontendCols} />
-          <SkillList title="CSS Frameworks" columns={cssFrameworksCols} />
-          <SkillList title="Backend Engineering" columns={backendCols} />
-          <SkillList title="Databases & Data Stores" columns={databaseCols} />
-          <SkillList title="Cloud & DevOps" columns={cloudDevOpsCols} />
-          <SkillList title="Analytics Engineering" columns={analyticsCols} />
-          <SkillList title="Languages" columns={languagesCols} />
-          <SkillList title="Mobile Engineering" columns={mobileCols} />
+          {categories.map((category) => {
+            const items = Skills[category]
+            if (!items.length) {
+              return null
+            }
+            return (
+              <SkillList
+                key={category}
+                title={skillSectionTitles[category]}
+                columns={splitSkills(items)}
+              />
+            )
+          })}
         </ModalBody>
         <ModalFooter>
-          <Text fontSize="x-small">*Some micro frameworks not included </Text>
+          <Text fontSize="x-small">*Some micro frameworks not included</Text>
         </ModalFooter>
       </ModalContent>
     </Modal>

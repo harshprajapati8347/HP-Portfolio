@@ -1,42 +1,16 @@
-import {
-  Box,
-  Image as ChkImage,
-  Text,
-  Link,
-  SkeletonCircle,
-  useColorModeValue,
-} from '@chakra-ui/react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useEffect } from 'react'
+'use client'
+
+import { Box } from '@chakra-ui/react'
+import { motion, AnimatePresence, useReducedMotion } from 'framer-motion'
 import { avatarAnimation } from 'config/animations'
+import { site } from 'config/site'
+import OptimizedImage from 'components/OptimizedImage'
 
-const AvatarImages = {
-  DarkMode: '/logo_big.png',
-  LightMode: '/logo_big.png',
-}
-
-declare global {
-  interface Window {
-    preloadedPictures?: HTMLImageElement[]
-  }
-}
+const MotionBox = motion.create(Box)
 
 const Avatar = () => {
-  const MotionBox = motion(Box)
-  const imgAvatar = useColorModeValue(
-    AvatarImages.LightMode,
-    AvatarImages.DarkMode
-  )
-  useEffect(() => {
-    // Some nice preloading and caching
-    const images = [AvatarImages.DarkMode, AvatarImages.LightMode]
-    const preloadedImages = images.map((imageSrc) => {
-      const img = new Image()
-      img.src = imageSrc
-      return img
-    })
-    window.preloadedPictures = preloadedImages
-  }, [])
+  const shouldReduceMotion = useReducedMotion()
+
   return (
     <AnimatePresence>
       <MotionBox
@@ -44,18 +18,20 @@ const Avatar = () => {
         boxSize={{ base: 64, lg: 'sm' }}
         padding={{ base: 8 }}
         marginBottom={{ base: 10, md: 0, lg: 0 }}
-        initial="initial"
-        animate={'animate'}
-        variants={avatarAnimation as any}
+        initial={shouldReduceMotion ? false : 'initial'}
+        animate="animate"
+        variants={avatarAnimation}
         exit={{ opacity: 0 }}
+        position="relative"
       >
-        <ChkImage
-          src={imgAvatar}
-          alt="Harsh Prajapati Avatar"
-          htmlWidth="250"
-          htmlHeight="250"
-          margin="auto"
-          fallback={<SkeletonCircle height="100%" width="100%" />}
+        <OptimizedImage
+          src={site.avatar}
+          alt={`${site.name} avatar`}
+          width={250}
+          height={250}
+          sizes="(max-width: 992px) 160px, 250px"
+          style={{ margin: 'auto', width: '100%', height: 'auto' }}
+          placeholder="empty"
         />
       </MotionBox>
     </AnimatePresence>

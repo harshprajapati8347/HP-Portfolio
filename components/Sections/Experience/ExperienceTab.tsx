@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client'
+
 import {
   Text,
   Link,
@@ -8,20 +9,20 @@ import {
   Tab,
   TabPanels,
   TabPanel,
-  Image,
   List,
   ListIcon,
   ListItem,
   SlideFade,
-  Skeleton,
   useColorModeValue,
   useBreakpointValue,
   useColorMode,
+  Box,
 } from '@chakra-ui/react'
 import { BiRightArrow } from 'react-icons/bi'
 import styles from './styles.module.css'
 import { ExperiencesList } from 'config/experience'
 import { mobileBreakpointsMap } from 'config/theme'
+import OptimizedImage from 'components/OptimizedImage'
 
 const ExperienceTab = () => {
   const { colorMode } = useColorMode()
@@ -30,14 +31,14 @@ const ExperienceTab = () => {
   const activeBordercolor = useColorModeValue('teal.500', '#97DFFC')
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
 
-  const tabOrientation =
+  const tabOrientation: 'horizontal' | 'vertical' =
     useBreakpointValue({
       base: 'horizontal',
       sm: 'horizontal',
       md: 'vertical',
       lg: 'vertical',
       xl: 'vertical',
-    }) ?? ('vertical' as any)
+    }) ?? 'vertical'
 
   const tabMinWidth = useBreakpointValue({
     base: '160px',
@@ -46,13 +47,14 @@ const ExperienceTab = () => {
     lg: 'auto',
     xl: 'auto',
   })
+
   return (
     <Tabs id="experienceTabs" orientation={tabOrientation} isLazy>
       <TabList
         width={!isMobile ? '30%' : 'auto'}
         borderColor="transparent"
         overflowX={isMobile ? 'scroll' : 'auto'}
-        overflowY={'hidden'}
+        overflowY="hidden"
         className={styles.experienceTabs}
       >
         {ExperiencesList.map((company) => (
@@ -61,7 +63,6 @@ const ExperienceTab = () => {
             fontSize="smaller"
             h="120px"
             minWidth={tabMinWidth}
-            boxShadow="none"
             borderColor={borderColor}
             borderLeftWidth={tabOrientation === 'vertical' ? '4px' : '0'}
             _selected={{
@@ -72,22 +73,28 @@ const ExperienceTab = () => {
               background: 'whiteAlpha.100',
             }}
             borderBottomWidth={tabOrientation === 'horizontal' ? '4px' : '0'}
+            aria-label={company.longName}
           >
-            <Image
-              src={
-                colorMode === 'dark' ? company.logo.dark : company.logo.light
-              }
-              alt={company.longName}
-              maxWidth="88px"
-              fallback={<Skeleton height="100%" width="100%" />}
-            ></Image>
+            <Box position="relative" width="88px" height="64px">
+              <OptimizedImage
+                src={
+                  colorMode === 'dark'
+                    ? company.logo.dark ?? company.logo.light
+                    : company.logo.light
+                }
+                alt={`${company.longName} logo`}
+                fill
+                sizes="88px"
+                wrapperHeight="64px"
+              />
+            </Box>
           </Tab>
         ))}
       </TabList>
       <TabPanels>
         {ExperiencesList.map((company) => (
           <TabPanel key={`TabPanel-${company.name}`}>
-            <SlideFade offsetY="20px" in={true}>
+            <SlideFade offsetY="20px" in>
               <Stack spacing={0}>
                 <Text
                   as="span"
@@ -100,7 +107,7 @@ const ExperienceTab = () => {
                 <Text as="span">
                   <Link
                     href={company.url}
-                    aria-label="scentregroup"
+                    aria-label={`${company.name} website`}
                     rel="noreferrer"
                     target="_blank"
                     fontSize="lg"
@@ -121,7 +128,7 @@ const ExperienceTab = () => {
                 <Text fontSize="smaller">{company.duration}</Text>
               </Stack>
               <List spacing={3} pt={5}>
-                {company.roles?.map((roleDesc, idx) => (
+                {company.roles.map((roleDesc, idx) => (
                   <ListItem
                     key={`${company.name}-desc-${idx}`}
                     fontSize="smaller"
@@ -134,7 +141,7 @@ const ExperienceTab = () => {
                       color={emphasis}
                       display="block"
                     />
-                    <Text as="span" display="block" variant="description" fontSize={"sm"}>
+                    <Text as="span" display="block" variant="description" fontSize="sm">
                       {roleDesc}
                     </Text>
                   </ListItem>

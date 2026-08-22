@@ -1,14 +1,7 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  Grid,
-  GridItem,
-  Stack,
-  Box,
-  useBreakpointValue,
-} from '@chakra-ui/react'
+'use client'
+
+import { Grid, GridItem, Stack, Box, useBreakpointValue } from '@chakra-ui/react'
 import dynamic from 'next/dynamic'
-import Script from 'next/script'
-import OpenGraphHead from 'components/Misc/OpenGraphHead'
 import FadeInLayout from 'components/Layout/FadeWhenVisible'
 import Menu from 'components/Menu'
 import Sidebar from 'components/Sidebar'
@@ -16,13 +9,22 @@ import Avatar from 'components/Avatar'
 import About from 'components/Sections/About'
 import Experience from 'components/Sections/Experience'
 import FeaturedWorks from 'components/Sections/FeaturedWorks'
+import Blog from 'components/Sections/Blog'
+import Testimonials from 'components/Sections/Testimonials'
 import ScrollMore from 'components/Misc/ScrollMore'
-import { Article } from 'types/article'
-// These are on bottom sections so no need to render it instantly
-// const DevToArticles = dynamic(() => import('components/Sections/DevToArticles'))
+import SkipLink from 'components/SkipLink'
+import { blogPosts } from 'config/blog'
+
 const GetInTouch = dynamic(() => import('components/Sections/GetInTouch'))
 
-const Portfolio = ({ articles }: { articles: Article[] }): JSX.Element => {
+const sectionBoxProps = {
+  className: 'contentRow',
+  paddingTop: { base: 0, lg: 20, xl: 20 },
+  paddingBottom: { base: 12, lg: 10 },
+  paddingX: 0,
+} as const
+
+export default function HomePage() {
   const sideBarPadding = useBreakpointValue({ base: '5', md: '8', lg: '14' })
   const mainContent = useBreakpointValue({
     base: '5',
@@ -31,9 +33,10 @@ const Portfolio = ({ articles }: { articles: Article[] }): JSX.Element => {
     xl: 0,
   })
   const paddTop = useBreakpointValue({ base: '20', sm: 20, md: 20 })
+
   return (
     <>
-      <OpenGraphHead />
+      <SkipLink />
       <Menu />
       <Grid
         id="mainGrid"
@@ -56,12 +59,13 @@ const Portfolio = ({ articles }: { articles: Article[] }): JSX.Element => {
           display="flex"
           alignContent="center"
           as="div"
-          flexDirection={'row'}
+          flexDirection="row"
         >
           <Sidebar />
         </GridItem>
         <GridItem
           as="main"
+          id="main-content"
           padding={mainContent}
           rowSpan={2}
           colSpan={{ base: 1, sm: 2, md: 2, lg: 3, xl: 3 }}
@@ -87,48 +91,29 @@ const Portfolio = ({ articles }: { articles: Article[] }): JSX.Element => {
               </Box>
             </FadeInLayout>
             <FadeInLayout>
-              <Box
-                id="jobs"
-                className="contentRow"
-                paddingTop={{ base: 0, lg: 20, xl: 0 }}
-                paddingBottom={{ base: 12, lg: 10 }}
-                paddingX={0}
-                flexDirection={'row'}
-              >
+              <Box id="jobs" {...sectionBoxProps} paddingTop={{ base: 0, lg: 20, xl: 0 }}>
                 <Experience />
               </Box>
             </FadeInLayout>
             <FadeInLayout>
-              <Box
-                id="works"
-                className="contentRow"
-                paddingTop={{ base: 0, lg: 20, xl: 20 }}
-                paddingBottom={{ base: 12, lg: 10 }}
-                paddingX={0}
-                flexDirection={'row'}
-              >
+              <Box id="works" {...sectionBoxProps}>
                 <FeaturedWorks />
               </Box>
             </FadeInLayout>
-            {/* <FadeInLayout>
-              <Box
-                id="blog"
-                className="contentRow"
-                paddingTop={{ base: 0, lg: 20, xl: 20 }}
-                paddingBottom={{ base: 12, lg: 10 }}
-                paddingX={0}
-                flexDirection={'row'}
-              >
-                <DevToArticles articles={articles} />
-              </Box>
-            </FadeInLayout> */}
+            {blogPosts.length > 0 && (
+              <FadeInLayout>
+                <Box id="blog" {...sectionBoxProps}>
+                  <Blog />
+                </Box>
+              </FadeInLayout>
+            )}
+            <Testimonials />
             <FadeInLayout>
               <Box
                 id="contact"
                 className="contentRow"
                 paddingTop={{ base: 0, lg: 20, xl: 20 }}
                 paddingX={0}
-                flexDirection={'row'}
               >
                 <GetInTouch />
               </Box>
@@ -140,17 +125,3 @@ const Portfolio = ({ articles }: { articles: Article[] }): JSX.Element => {
     </>
   )
 }
-
-export async function getStaticProps() {
-  const res = await fetch(
-    'https://dev.to/api/articles?username=harsh_prajapati'
-  )
-  const articles = await res.json()
-  return {
-    props: {
-      articles,
-    },
-  }
-}
-
-export default Portfolio

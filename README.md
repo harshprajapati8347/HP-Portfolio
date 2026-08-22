@@ -1,47 +1,67 @@
 # Harsh Prajapati — SDE Portfolio
 
-Personal developer portfolio built with **TypeScript** and **Next.js**, showcasing my work in **full-stack web development, analytics engineering, and cloud deployments**.
+Personal developer portfolio built with **TypeScript** and **Next.js 16** (App Router).
 
-🔗 **Live:** https://www.iamharsh.in
+**Live:** https://www.iamharsh.in
 
----
+## Tech stack
 
-## Tech Stack
+- Next.js 16 (App Router)
+- React 19 + TypeScript
+- Chakra UI v2
+- Framer Motion
+- Analytics: Google Tag Manager + GA4
 
-- **Framework:** Next.js (SSG)
-- **Language:** TypeScript
-- **UI:** Chakra UI
-- **Animations:** Framer Motion
+## Requirements
 
----
+- Node.js 20.9+
+- pnpm 10
 
-## Local Development
-
-This is a standard **Next.js** project bootstrapped using `create-next-app`.
-
-### Installation
+## Local development
 
 ```bash
-yarn
+pnpm install
+pnpm dev
 ```
 
-### Start Development Server
+Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
-yarn dev
+pnpm lint
+pnpm typecheck
+pnpm build
 ```
 
-Open in browser:
+## Content
 
+All repeatable copy lives in [`config/`](config/):
+
+| File | What it controls |
+| --- | --- |
+| `config/site.ts` | Name, bio, nav, SEO, GTM, contact, section headings |
+| `config/projects.ts` | Featured work |
+| `config/experience.ts` | Work history |
+| `config/skills.ts` | Featured skills + full skill modal |
+| `config/blog.ts` | Writing links (title, url, topic, optional platform). Section and nav stay hidden until this list has entries. |
+| `config/testimonials.ts` | Testimonials (section hidden when empty) |
+| `config/sidebar.ts` | Social links |
+
+Add a blog post by appending to `blogPosts` in `config/blog.ts`:
+
+```ts
+{
+  title: 'How I ship production Next.js apps',
+  url: 'https://hashnode.com/your-post',
+  topic: 'Next.js',
+  platform: 'Hashnode', // optional
+}
 ```
-http://localhost:3000
-```
 
----
+Optional env: copy `.env.example` to `.env.local` to override `NEXT_PUBLIC_GTM_ID`.
 
-## Connect with Me
+## Connect
 
-- 🌐 **Portfolio:** [https://www.iamharsh.in](https://www.iamharsh.in)
-- 💼 **LinkedIn:** [https://www.linkedin.com/in/harsh-prajapati-developer/](https://www.linkedin.com/in/harsh-prajapati-developer/)
-- 💻 **GitHub:** [https://github.com/harshprajapati8347](https://github.com/harshprajapati8347)
-- 📧 **Email:** [harshprajapati0123@gmail.com](mailto:harshprajapati0123@gmail.com)
+- Portfolio: https://www.iamharsh.in
+- LinkedIn: https://www.linkedin.com/in/harsh-prajapati-developer/
+- GitHub: https://github.com/harshprajapati8347
+- Email: harshprajapati0123@gmail.com

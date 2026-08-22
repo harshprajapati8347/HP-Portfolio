@@ -1,30 +1,36 @@
+'use client'
+
 import { memo } from 'react'
 import { Heading, Text, Stack, Link } from '@chakra-ui/react'
 import ExperienceTab from './ExperienceTab'
+import { site } from 'config/site'
+
 const DetailSection = () => (
   <Stack
     width={{ base: '99%', lg: '60%', xl: '75%' }}
     height="100%"
     spacing={{ base: 6, xl: 8 }}
+    as="section"
+    aria-labelledby="experience-heading"
   >
     <Heading
+      as="h2"
+      id="experience-heading"
       size="2xl"
       style={{
         fontVariantCaps: 'small-caps',
       }}
     >
-      Places i’ve worked.
+      {site.experience.heading}
     </Heading>
     <Text variant="description">
-      Since 2023, had a privilege to work with several companies that enables me
-      to hone my skills and talents. These companies will always have a special
-      place in my heart. Currently I am working with{' '}
+      {site.experience.introBefore}{' '}
       <Link
-        href="https://www.dentsu.com/in/en"
+        href={site.experience.currentCompanyUrl}
         target="_blank"
         rel="noreferrer"
       >
-        Dentsu
+        {site.experience.currentCompanyName}
       </Link>
       .
     </Text>

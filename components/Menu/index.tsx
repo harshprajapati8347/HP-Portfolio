@@ -1,10 +1,12 @@
+'use client'
+
 import { useEffect } from 'react'
 import {
   Container,
   useColorModeValue,
   useBreakpointValue,
 } from '@chakra-ui/react'
-import { motion, Variants, useAnimation } from 'framer-motion'
+import { motion, Variants, useAnimation, useReducedMotion } from 'framer-motion'
 import Logo from '../Logo'
 import styles from './styles.module.css'
 import Navigation from './Navigation'
@@ -34,17 +36,22 @@ const Menu = () => {
   const bg = useColorModeValue('gray.100', 'black')
   const controls = useAnimation()
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
+  const shouldReduceMotion = useReducedMotion()
   const scrollDirection = useScrollDirection(true, isMobile)
   useEffect(() => {
+    if (shouldReduceMotion) {
+      controls.start('show')
+      return
+    }
     if (scrollDirection === ScrollDirection.Down && isMobile) {
       controls.start('hidden')
     } else {
       controls.start('show')
     }
-  }, [isMobile, controls, scrollDirection])
+  }, [isMobile, controls, scrollDirection, shouldReduceMotion])
   return (
     <motion.div
-      initial={isMobile ? 'hidden' : false}
+      initial={isMobile && !shouldReduceMotion ? 'hidden' : false}
       variants={mobileMenuVariants}
       animate={controls}
       className={isMobile ? styles.mobileMenuContainer : ''}

@@ -1,3 +1,5 @@
+'use client'
+
 import { memo } from 'react'
 import {
   Heading,
@@ -12,9 +14,10 @@ import FeaturedCard from './FeaturedCard'
 import { fadeInUpSlower, galleryStagger } from 'config/animations'
 import { mobileBreakpointsMap } from 'config/theme'
 import projects from 'config/projects'
+import { site } from 'config/site'
 
-const MotionGrid = motion(Grid)
-const MotionGridItem = motion(GridItem)
+const MotionGrid = motion.create(Grid)
+const MotionGridItem = motion.create(GridItem)
 
 const FeaturedWorksSection = () => {
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
@@ -24,20 +27,21 @@ const FeaturedWorksSection = () => {
       width={{ base: '99%', lg: '60%', xl: '75%' }}
       height="100%"
       spacing={{ base: 6, xl: 8 }}
+      as="section"
+      aria-labelledby="works-heading"
     >
       <Heading
+        as="h2"
+        id="works-heading"
         size="2xl"
         style={{
           fontVariantCaps: 'small-caps',
         }}
       >
-        Some of my works.
+        {site.works.heading}
       </Heading>
 
-      <Text variant="description">
-        A selection of production-ready platforms and systems I've built across
-        full-stack engineering, analytics, and cloud deployments.
-      </Text>
+      <Text variant="description">{site.works.intro}</Text>
 
       <MotionGrid
         templateRows="repeat(1, 1fr)"

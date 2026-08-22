@@ -1,3 +1,5 @@
+'use client'
+
 import { useEffect, useState } from 'react'
 
 export enum ScrollDirection {
@@ -14,7 +16,6 @@ const useScrollDirection = (
   belowAvatar = true
 ) => {
   const [scrollDir, setScrollDir] = useState(ScrollDirection.Initial)
-  const [isInitialized, setIsInitialized] = useState(false)
 
   useEffect(() => {
     const avatarContainer = document.querySelector('#hpAvatar') as HTMLElement
@@ -63,19 +64,20 @@ const useScrollDirection = (
     }
 
     if ((isMobileOnly && isMobile) || !isMobileOnly) {
-      window?.addEventListener('scroll', onScroll)
+      window.addEventListener('scroll', onScroll)
     }
 
-    // Fallback for initial load
-    if (!isMobile && !isInitialized && lastScrollY > avatarScrollY) {
-      setScrollDir(ScrollDirection.Down)
-      setIsInitialized(true)
-    }
+    const frame = window.requestAnimationFrame(() => {
+      if (!isMobile && lastScrollY > avatarScrollY) {
+        setScrollDir(ScrollDirection.Down)
+      }
+    })
 
     return () => {
-      window?.removeEventListener('scroll', onScroll)
+      window.cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', onScroll)
     }
-  }, [scrollDir, isMobileOnly, isMobile, isInitialized, belowAvatar])
+  }, [scrollDir, isMobileOnly, isMobile, belowAvatar])
   return scrollDir
 }
 

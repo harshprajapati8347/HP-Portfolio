@@ -1,3 +1,5 @@
+'use client'
+
 import { memo, useCallback } from 'react'
 import {
   Container,
@@ -14,12 +16,15 @@ import { motion, useCycle } from 'framer-motion'
 import styles from './styles.module.css'
 import MobileMenu from './toggle'
 import { ThemeMode, mobileBreakpointsMap } from 'config/theme'
-import { easing, menuAnim } from 'config/animations'
+import { menuAnim } from 'config/animations'
 import useScrollDirection, { ScrollDirection } from 'hooks/useScrollDirection'
+import { site } from 'config/site'
+import { blogPosts } from 'config/blog'
+
+const MotionContainer = motion.create(Container)
 
 const Navigation = () => {
   const { toggleColorMode, colorMode } = useColorMode()
-  const MotionContainer = motion(Container)
   const [isOpen, toggleOpen] = useCycle(false, true)
   const isMobile = useBreakpointValue(mobileBreakpointsMap)
   const menuButtonSize = useBreakpointValue({
@@ -37,16 +42,11 @@ const Navigation = () => {
   const IsDark = colorMode === ThemeMode.Dark
   const btnClassName = `${styles.blogBtn} ${!IsDark && styles.dark}`
   const Icon = IsDark ? SunIcon : MoonIcon
-  const onMenuItemClick = useCallback(
-    (e: React.MouseEvent<HTMLElement>) => {
-      e.stopPropagation()
-
-      if (isMobile) {
-        toggleOpen()
-      }
-    },
-    [isMobile, toggleOpen]
-  )
+  const onMenuItemClick = useCallback(() => {
+    if (isMobile) {
+      toggleOpen()
+    }
+  }, [isMobile, toggleOpen])
   const scrollDirection = useScrollDirection()
 
   return (
@@ -60,11 +60,10 @@ const Navigation = () => {
         top="3%"
       >
         <IconButton
-          aria-label="Color Mode"
+          aria-label={IsDark ? 'Switch to light mode' : 'Switch to dark mode'}
           variant="ghost"
           icon={<Icon />}
-          boxShadow="none"
-          // onClick={toggleColorMode}
+          onClick={toggleColorMode}
           padding={0}
         />
         <MobileMenu isDarkMode={IsDark} toggle={toggleOpen} isOpen={isOpen} />
@@ -88,41 +87,18 @@ const Navigation = () => {
             !isMobile && scrollDirection === ScrollDirection.Down
               ? '12%'
               : '100%',
-
-          top:
-            !isOpen && isMobile
-              ? '-100vh'
-              : undefined,
-
-          opacity:
-            !isOpen && isMobile
-              ? 0
-              : undefined,
-
-          left:
-            isOpen && isMobile
-              ? 0
-              : undefined,
+          top: !isOpen && isMobile ? '-100vh' : undefined,
+          opacity: !isOpen && isMobile ? 0 : undefined,
+          left: isOpen && isMobile ? 0 : undefined,
         }}
-        borderColor={
-          isOpen && isMobile
-            ? borderColor
-            : undefined
-        }
-        borderBottomWidth={
-          isOpen && isMobile
-            ? '1px'
-            : undefined
-        }
-        paddingBottom={
-          isOpen && isMobile
-            ? '1px'
-            : undefined
-        }
+        borderColor={isOpen && isMobile ? borderColor : undefined}
+        borderBottomWidth={isOpen && isMobile ? '1px' : undefined}
+        paddingBottom={isOpen && isMobile ? '1px' : undefined}
         variants={menuAnim}
         marginTop={0}
         paddingTop={1}
         as="nav"
+        aria-label="Primary"
       >
         <Flex
           justifyContent={{ base: 'center', lg: 'flex-end' }}
@@ -140,120 +116,42 @@ const Navigation = () => {
           paddingBottom={isMobile ? 10 : '0'}
           onClick={() => isMobile && toggleOpen()}
         >
-          <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
-          >
-            <Button
-              fontWeight="light"
-              variant="ghost"
-              fontSize={menuButtonSize}
-              letterSpacing={2}
-              className={btnClassName}
-              padding={2}
-              marginX={2}
-              as="a"
-              href={isMobile ? '#aboutMe' : '#'}
-              rel="noreferrer"
-              onClick={onMenuItemClick}
+          {site.nav
+            .filter((item) => item.id !== 'blog' || blogPosts.length > 0)
+            .map((item) => (
+            <Box
+              key={item.id}
+              width={{ base: '100%', lg: 'auto' }}
+              textAlign={{ base: 'center', lg: 'left' }}
+              marginY={{ base: 2, lg: 0 }}
             >
-              About
-            </Button>
-          </Box>
-          <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
-            marginY={{ base: 2, lg: 0 }}
-          >
-            <Button
-              fontWeight="light"
-              variant="ghost"
-              fontSize={menuButtonSize}
-              letterSpacing={2}
-              className={btnClassName}
-              padding={2}
-              marginX={2}
-              as="a"
-              href="#jobs"
-              rel="noreferrer"
-              onClick={onMenuItemClick}
-            >
-              Experience
-            </Button>
-          </Box>
-          <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
-            marginY={{ base: 2, lg: 0 }}
-          >
-            <Button
-              fontWeight="light"
-              variant="ghost"
-              fontSize={menuButtonSize}
-              letterSpacing={2}
-              className={btnClassName}
-              padding={2}
-              marginX={2}
-              as="a"
-              href="#works"
-              rel="noreferrer"
-              onClick={onMenuItemClick}
-            >
-              Works
-            </Button>
-          </Box>
-          <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
-            marginY={{ base: 2, lg: 0 }}
-          >
-            <Button
-              fontWeight="light"
-              variant="ghost"
-              fontSize={menuButtonSize}
-              letterSpacing={2}
-              className={btnClassName}
-              padding={2}
-              marginX={2}
-              as="a"
-              href="#contact"
-              rel="noreferrer"
-              onClick={onMenuItemClick}
-            >
-              Contact
-            </Button>
-          </Box>
-          {/* Resume Button */}
-          <Box
-            width={{ base: '100%', lg: 'auto' }}
-            textAlign={{ base: 'center', lg: 'left' }}
-            marginY={{ base: 2, lg: 0 }}
-          >
-            <Button
-              fontWeight="light"
-              variant="ghost"
-              fontSize={menuButtonSize}
-              letterSpacing={2}
-              className={btnClassName}
-              padding={2}
-              marginX={2}
-              as="a"
-              href="https://drive.google.com/drive/folders/14X1zywbbfk8TZzuJqrnm164d4Zy_9HMp?usp=sharing"
-              rel="noreferrer"
-              target="_blank"
-              onClick={onMenuItemClick}
-            >
-              Resume
-            </Button>
-          </Box>
+              <Button
+                fontWeight="light"
+                variant="ghost"
+                fontSize={menuButtonSize}
+                letterSpacing={2}
+                className={btnClassName}
+                padding={2}
+                marginX={2}
+                as="a"
+                href={item.href}
+                rel={item.external ? 'noreferrer' : undefined}
+                target={item.external ? '_blank' : undefined}
+                onClick={onMenuItemClick}
+              >
+                {item.label}
+              </Button>
+            </Box>
+          ))}
           {!isMobile && (
             <Box>
               <IconButton
                 marginX={1}
-                aria-label="Color Mode"
+                aria-label={
+                  IsDark ? 'Switch to light mode' : 'Switch to dark mode'
+                }
                 variant="ghost"
                 icon={<Icon />}
-                boxShadow="none"
                 onClick={toggleColorMode}
               />
             </Box>

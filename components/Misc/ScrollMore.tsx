@@ -1,3 +1,5 @@
+'use client'
+
 import {
   Box,
   Icon,
@@ -6,9 +8,10 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import { RiMouseLine } from 'react-icons/ri'
-import { motion, Variants, AnimatePresence } from 'framer-motion'
+import { motion, Variants, AnimatePresence, useReducedMotion } from 'framer-motion'
 import useScrollDirection, { ScrollDirection } from 'hooks/useScrollDirection'
 import { mobileBreakpointsMap } from 'config/theme'
+import { site } from 'config/site'
 
 const scrollMoreVariants: Variants = {
   initial: {
@@ -57,6 +60,7 @@ const ScrollMore = () => {
   const scrollDirection = useScrollDirection(false, isMobile)
   const emailColor = useColorModeValue('gray.800', 'gray.400')
   const emailLine = useColorModeValue('teal.500', 'cyan.200')
+  const shouldReduceMotion = useReducedMotion()
 
   return (
     <Box
@@ -70,8 +74,8 @@ const ScrollMore = () => {
           scrollDirection
         ) && (
           <motion.div
-            initial="initial"
-            animate={['hidden', 'bounce']}
+            initial={shouldReduceMotion ? false : 'initial'}
+            animate={shouldReduceMotion ? 'hidden' : ['hidden', 'bounce']}
             variants={scrollMoreVariants}
           >
             <Icon
@@ -80,6 +84,7 @@ const ScrollMore = () => {
               as={RiMouseLine}
               color="currentColor"
               opacity="0.75"
+              aria-hidden
             />
           </motion.div>
         )}
@@ -91,7 +96,7 @@ const ScrollMore = () => {
             animate="show"
             exit="exit"
             variants={emailVariants}
-            whileHover={{ y: -50 }}
+            whileHover={shouldReduceMotion ? undefined : { y: -50 }}
             style={{
               writingMode: 'vertical-rl',
               position: 'fixed',
@@ -103,8 +108,7 @@ const ScrollMore = () => {
               as="a"
               paddingY={3}
               fontFamily="monospace"
-              href="mailto:harshprajapati0123@gmail.com"
-              target="_blank"
+              href={`mailto:${site.email}`}
               rel="noreferrer"
               color={emailColor}
               _hover={{
@@ -130,7 +134,7 @@ const ScrollMore = () => {
                 marginTop: '10px',
               }}
             >
-              harshprajapati0123@gmail.com{' '}
+              {site.email}
             </Text>
           </motion.div>
         )}

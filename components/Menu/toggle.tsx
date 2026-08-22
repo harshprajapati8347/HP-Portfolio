@@ -1,13 +1,13 @@
-/* eslint-disable react/no-multi-comp */
+'use client'
+
 import * as React from 'react'
 import { motion } from 'framer-motion'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const Path = (props: any) => (
+const Path = (props: React.ComponentProps<typeof motion.path> & { isDarkMode?: boolean }) => (
   <motion.path
     fill="transparent"
     strokeWidth="3"
-    stroke={props?.isDarkMode ? 'hsl(240, 100%, 94%)' : 'hsl(0, 0%, 7%)'}
+    stroke={props.isDarkMode ? 'hsl(240, 100%, 94%)' : 'hsl(0, 0%, 7%)'}
     strokeLinecap="round"
     {...props}
   />
@@ -16,12 +16,18 @@ const Path = (props: any) => (
 export const MenuToggle = ({
   toggle,
   isDarkMode = false,
+  isOpen,
 }: {
   toggle(): void
   isDarkMode?: boolean
+  isOpen: boolean
 }) => (
   <button
+    type="button"
     onClick={toggle}
+    aria-label={isOpen ? 'Close menu' : 'Open menu'}
+    aria-expanded={isOpen}
+    aria-controls="primary-navigation"
     style={{
       width: '40px',
       height: '40px',
@@ -30,7 +36,7 @@ export const MenuToggle = ({
       justifyContent: 'center',
     }}
   >
-    <svg width="23" height="23" viewBox="0 0 23 18">
+    <svg width="23" height="23" viewBox="0 0 23 18" aria-hidden="true">
       <Path
         isDarkMode={isDarkMode}
         variants={{
@@ -75,8 +81,7 @@ const MobileMenu = ({
       alignItems: 'center',
     }}
   >
-    {/* <motion.div className="background" variants={sidebar} /> */}
-    <MenuToggle toggle={() => toggle()} isDarkMode={isDarkMode} />
+    <MenuToggle toggle={toggle} isDarkMode={isDarkMode} isOpen={isOpen} />
   </motion.nav>
 )
 

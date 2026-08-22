@@ -4,17 +4,10 @@ import {
   ChakraTheme,
   ThemeComponentProps,
 } from '@chakra-ui/react'
-import { mode } from "@chakra-ui/theme-tools";
+import { mode } from '@chakra-ui/theme-tools'
+import { ThemeMode, themeConfig } from 'config/theme-config'
 
-interface IThemeMode {
-  Light: ColorMode
-  Dark: ColorMode
-}
-
-export const ThemeMode: IThemeMode = {
-  Light: 'light',
-  Dark: 'dark',
-}
+export { ThemeMode, themeConfig }
 
 export const mobileBreakpointsMap = {
   base: true,
@@ -23,22 +16,40 @@ export const mobileBreakpointsMap = {
   xl: false,
 }
 
-// Theme Config
-const config = {
-  initialColorMode: ThemeMode.Dark,
-  useSystemColorMode: false,
-}
+const config = themeConfig
 
 const colors = {
   black: '#121212',
+  brand: {
+    accentLight: 'teal.500',
+    accentDark: 'cyan.200',
+    mutedLight: '#595959',
+    mutedDark: '#A6A6A6',
+  },
+}
+
+const fontStack =
+  'var(--font-poppins), Poppins, system-ui, -apple-system, Segoe UI, sans-serif'
+
+const focusRing = {
+  _focusVisible: {
+    boxShadow: 'outline',
+    outline: '2px solid',
+    outlineColor: 'cyan.200',
+    outlineOffset: '2px',
+  },
 }
 
 const styles = {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  global: (props: any) => ({
+  global: (props: { colorMode: ColorMode }) => ({
     body: {
       color: mode('gray.800', 'whiteAlpha.900')(props),
       bg: mode('gray.100', '#121212')(props),
+    },
+    '@media (prefers-reduced-motion: reduce)': {
+      'html, body': {
+        scrollBehavior: 'auto',
+      },
     },
   }),
 }
@@ -51,7 +62,7 @@ const textVariants = {
     color: mode('gray.800', 'gray.400')(props),
   }),
   accent: (props: ThemeComponentProps<ChakraTheme>) => ({
-    color: mode('black.400', 'cyan.200')(props),
+    color: mode('teal.600', 'cyan.200')(props),
   }),
   accentAlternative: (props: ThemeComponentProps<ChakraTheme>) => ({
     color: mode('#595959', '#A6A6A6')(props),
@@ -61,7 +72,8 @@ const textVariants = {
 const theme = extendTheme({
   config,
   fonts: {
-    body: 'Poppins',
+    body: fontStack,
+    heading: fontStack,
   },
   colors,
   styles,
@@ -69,6 +81,7 @@ const theme = extendTheme({
     Link: {
       baseStyle: (props: ThemeComponentProps<ChakraTheme>) => ({
         color: mode('teal.500', 'cyan.200')(props),
+        ...focusRing,
       }),
       variants: {
         ...textVariants,
@@ -88,9 +101,12 @@ const theme = extendTheme({
       variants: textVariants,
     },
     Button: {
+      baseStyle: {
+        ...focusRing,
+      },
       variants: {
         outline: (props: ThemeComponentProps<ChakraTheme>) => ({
-          borderColor: mode('black.400', 'cyan.200')(props),
+          borderColor: mode('teal.500', 'cyan.200')(props),
         }),
         outlineAlternative: (props: ThemeComponentProps<ChakraTheme>) => ({
           borderWidth: '1px',
@@ -103,6 +119,11 @@ const theme = extendTheme({
             )(props),
           },
         }),
+      },
+    },
+    IconButton: {
+      baseStyle: {
+        ...focusRing,
       },
     },
     Icon: {
@@ -123,4 +144,5 @@ const theme = extendTheme({
     },
   },
 })
+
 export default theme

@@ -1,5 +1,6 @@
 import { IconType } from 'react-icons'
 import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa'
+import { site } from 'config/site'
 
 type SocialMedia = {
   label: string
@@ -10,17 +11,17 @@ type SocialMedia = {
 export const SocialMedias: SocialMedia[] = [
   {
     label: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/harsh-prajapati-developer/',
+    href: site.linkedIn,
     icon: FaLinkedin,
   },
   {
     label: 'Github',
-    href: 'https://github.com/harshprajapati8347/',
+    href: site.githubProfile,
     icon: FaGithub,
   },
   {
     label: 'Instagram',
-    href: 'https://www.instagram.com/harsh.prajapati.26/',
+    href: site.instagram,
     icon: FaInstagram,
   },
 ]

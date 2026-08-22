@@ -1,3 +1,5 @@
+'use client'
+
 import { memo } from 'react'
 import dynamic from 'next/dynamic'
 import { useDisclosure } from '@chakra-ui/react'
@@ -14,4 +16,5 @@ const AboutSection = () => {
     </>
   )
 }
+
 export default memo(AboutSection)

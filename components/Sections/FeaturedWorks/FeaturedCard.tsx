@@ -1,10 +1,9 @@
-/* eslint-disable react/no-multi-comp */
+'use client'
+
 import {
   Box,
-  Image,
   ResponsiveValue,
   Divider,
-  Skeleton,
   Text,
   SimpleGrid,
   Button,
@@ -13,15 +12,14 @@ import {
   useColorModeValue,
   GridItem,
 } from '@chakra-ui/react'
-import { motion, backOut } from 'framer-motion'
+import { motion, backOut, useReducedMotion } from 'framer-motion'
 import styles from './styles.module.css'
 import { easing, DURATIONS } from 'config/animations'
 import { ExternalLinkIcon } from '@chakra-ui/icons'
+import OptimizedImage from 'components/OptimizedImage'
 
 export type FeaturedCardProps = {
-  // Still can't find what's correct value for responsive value
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  height: string | ResponsiveValue<any>
+  height: string | ResponsiveValue<string>
   src: string
   idx: number
   title: string
@@ -33,9 +31,6 @@ export type FeaturedCardProps = {
 }
 
 const variants = {
-  normal: {
-    opacity: 0.85,
-  },
   hover: {
     scale: 1.1,
     opacity: 1,
@@ -53,7 +48,6 @@ const variants = {
     },
   },
 }
-const MotionImage = motion(Image)
 
 const ProjectDescription = ({
   idx,
@@ -89,8 +83,7 @@ const ProjectDescription = ({
         as="span"
       >
         <Text variant="accentAlternative" fontSize="md" as="span">
-          #0{idx}
-          {'  '}
+          #{String(idx).padStart(2, '0')}{' '}
         </Text>
         {title}
       </Text>
@@ -118,7 +111,6 @@ const ProjectDescription = ({
       alignItems="center"
       paddingY={{ base: 3, md: 4 }}
     >
-      {/* Live Button */}
       <Button
         as="a"
         href={ctaUrl}
@@ -128,28 +120,11 @@ const ProjectDescription = ({
         fontWeight="medium"
         fontSize={{ base: 'sm', '2xl': 'md' }}
         colorScheme="teal"
-        rightIcon={
-          <Box
-            as="span"
-            transition="all 0.2s ease"
-            _groupHover={{
-              transform: 'translate(4px, -4px)',
-              opacity: 1,
-            }}
-            opacity={0.7}
-          >
-            <ExternalLinkIcon />
-          </Box>
-        }
-        role="group"
-        _hover={{
-          textDecoration: 'none',
-        }}
+        rightIcon={<ExternalLinkIcon />}
+        _hover={{ textDecoration: 'none' }}
       >
         Live
       </Button>
-
-      {/* GitHub Button */}
       {githubUrl && (
         <Button
           as="a"
@@ -160,23 +135,8 @@ const ProjectDescription = ({
           fontWeight="medium"
           fontSize={{ base: 'sm', '2xl': 'md' }}
           variant="outline"
-          rightIcon={
-            <Box
-              as="span"
-              transition="all 0.2s ease"
-              _groupHover={{
-                transform: 'translate(4px, -4px)',
-                opacity: 1,
-              }}
-              opacity={0.6}
-            >
-              <ExternalLinkIcon />
-            </Box>
-          }
-          role="group"
-          _hover={{
-            textDecoration: 'none',
-          }}
+          rightIcon={<ExternalLinkIcon />}
+          _hover={{ textDecoration: 'none' }}
         >
           View Code
         </Button>
@@ -184,6 +144,8 @@ const ProjectDescription = ({
     </Stack>
   </Container>
 )
+
+const MotionBox = motion.create(Box)
 
 const FeaturedCard = ({
   idx,
@@ -198,21 +160,7 @@ const FeaturedCard = ({
 }: FeaturedCardProps) => {
   const isLeftImage = isMobile ? false : idx % 2 === 0
   const bg = useColorModeValue('blackAlpha.50', 'whiteAlpha.200')
-  const CoverImage = () => (
-    <MotionImage
-      height={height}
-      width="100%"
-      src={src}
-      alt={title}
-      objectFit="contain"
-      objectPosition={objectPosition}
-      loading="lazy"
-      opacity={0.75}
-      whileHover={variants.hover}
-      whileTap={variants.tap}
-      fallback={<Skeleton height={height} width="100%" />}
-    />
-  )
+  const shouldReduceMotion = useReducedMotion()
 
   return (
     <Box
@@ -229,7 +177,24 @@ const FeaturedCard = ({
         display={{ base: 'flex', md: 'grid' }}
         flexDirection={{ base: 'column-reverse', md: 'initial' }}
       >
-        {isLeftImage && <GridItem colSpan={1}><CoverImage /> </GridItem>}
+        {isLeftImage && (
+          <GridItem colSpan={1}>
+            <MotionBox
+              opacity={0.75}
+              whileHover={shouldReduceMotion ? undefined : variants.hover}
+              whileTap={shouldReduceMotion ? undefined : variants.tap}
+            >
+              <OptimizedImage
+                src={src}
+                alt={title}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                wrapperHeight={height}
+                style={{ objectPosition }}
+              />
+            </MotionBox>
+          </GridItem>
+        )}
         <GridItem colSpan={2}>
           <ProjectDescription
             idx={idx}
@@ -240,9 +205,27 @@ const FeaturedCard = ({
             isLeft={isLeftImage}
           />
         </GridItem>
-        {!isLeftImage && <GridItem colSpan={1}><CoverImage />  </GridItem>}
+        {!isLeftImage && (
+          <GridItem colSpan={1}>
+            <MotionBox
+              opacity={0.75}
+              whileHover={shouldReduceMotion ? undefined : variants.hover}
+              whileTap={shouldReduceMotion ? undefined : variants.tap}
+            >
+              <OptimizedImage
+                src={src}
+                alt={title}
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                wrapperHeight={height}
+                style={{ objectPosition }}
+              />
+            </MotionBox>
+          </GridItem>
+        )}
       </SimpleGrid>
     </Box>
   )
 }
+
 export default FeaturedCard

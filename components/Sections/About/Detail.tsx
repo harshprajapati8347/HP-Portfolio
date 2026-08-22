@@ -1,3 +1,5 @@
+'use client'
+
 import { memo } from 'react'
 import {
   Heading,
@@ -11,18 +13,9 @@ import {
   Stack,
   useColorModeValue,
 } from '@chakra-ui/react'
-import {
-  SiTypescript,
-  SiReact,
-  SiMongodb,
-  SiLangchain,
-  SiNextdotjs,
-  SiNodedotjs,
-  SiJavascript,
-} from 'react-icons/si'
 import { IoMdOpen } from 'react-icons/io'
-import { FaAws } from "react-icons/fa";
-
+import { featuredSkills } from 'config/skills'
+import { site } from 'config/site'
 
 type ISkillSetModal = {
   onOpen(): void
@@ -30,87 +23,64 @@ type ISkillSetModal = {
 
 const Detail = ({ onOpen }: ISkillSetModal) => {
   const emphasis = useColorModeValue('teal.500', 'cyan.200')
+  const midpoint = Math.ceil(featuredSkills.length / 2)
+  const columns = [
+    featuredSkills.slice(0, midpoint),
+    featuredSkills.slice(midpoint),
+  ]
 
   return (
     <Stack
       width={{ base: '100%', lg: '70%' }}
       spacing={{ base: 6, xl: 8 }}
       as="section"
+      aria-labelledby="about-heading"
     >
       <Heading
-        as="h4"
+        as="h2"
+        id="about-heading"
         size="2xl"
         letterSpacing={1.8}
         style={{
           fontVariantCaps: 'small-caps',
         }}
       >
-        What i do.
+        {site.about.heading}
       </Heading>
 
-      <Text variant="description">
-        Hey, I'm Harsh — a Full Stack Developer with 3+ years of experience shipping
-        production web applications. I'm most confident on the backend — REST API design,
-        Node.js, PostgreSQL, MongoDB, AWS, Docker, and CI/CD. I've built systems from
-        schema design through to cloud deployment, and I care about code that's
-        well-structured and built to scale.
-      </Text>
-
-      <Text variant="description">
-        On the frontend I work with React.js, Next.js, and TypeScript — as an engineer,
-        not a designer. State management, performance optimization, clean API integration.
-        Currently at Dentsu, shipping backend tooling and web solutions for
-        global enterprise clients. Next, I'm looking to go deeper on backend systems
-        and cloud infrastructure.
-      </Text>
+      {site.about.paragraphs.map((paragraph) => (
+        <Text key={paragraph.slice(0, 24)} variant="description">
+          {paragraph}
+        </Text>
+      ))}
 
       <SimpleGrid columns={2} spacing={4}>
-        <List spacing={3}>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiReact} color={emphasis} fontSize="2em" />
-            React.js
-          </ListItem>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiTypescript} color={emphasis} fontSize="2em" />
-            Typescript
-          </ListItem>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiMongodb} color={emphasis} fontSize="2em" />
-            MongoDB
-          </ListItem>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={FaAws} color={emphasis} fontSize="2em" />
-            AWS
-          </ListItem>
-        </List>
-        <List spacing={3}>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiNextdotjs} color={emphasis} fontSize="2em" />
-            Next.js
-          </ListItem>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiJavascript} color={emphasis} fontSize="2em" />
-            Javscript
-          </ListItem>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiNodedotjs} color={emphasis} fontSize="2em" />
-            Node.js
-          </ListItem>
-          <ListItem fontSize="small" display="flex" alignItems="center">
-            <ListIcon as={SiLangchain} color={emphasis} fontSize="2em" />
-            Langchain
-          </ListItem>
-        </List>
+        {columns.map((col) => (
+          <List key={col[0]?.name} spacing={3}>
+            {col.map((skill) => (
+              <ListItem
+                key={skill.name}
+                fontSize="small"
+                display="flex"
+                alignItems="center"
+              >
+                <ListIcon as={skill.icon} color={emphasis} fontSize="2em" />
+                {skill.name}
+              </ListItem>
+            ))}
+          </List>
+        ))}
         <Box>
-          <Text
+          <Box
             as="button"
-            variant="emphasis"
-            fontSize="smaller"
-            textAlign="left"
+            type="button"
             onClick={onOpen}
+            textAlign="left"
+            color={emphasis}
+            fontSize="smaller"
           >
-            See my full arsenal <Icon as={IoMdOpen} />
-          </Text>
+            {site.about.skillsCta} <Icon as={IoMdOpen} aria-hidden />
+          </Box>
         </Box>
       </SimpleGrid>
     </Stack>
