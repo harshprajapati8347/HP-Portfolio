@@ -41,8 +41,8 @@ const ExperienceTab = () => {
     }) ?? 'vertical'
 
   const tabMinWidth = useBreakpointValue({
-    base: '160px',
-    sm: '160px',
+    base: '80px',
+    sm: '80px',
     md: 'auto',
     lg: 'auto',
     xl: 'auto',
@@ -79,13 +79,17 @@ const ExperienceTab = () => {
               <OptimizedImage
                 src={
                   colorMode === 'dark'
-                    ? company.logo.dark ?? company.logo.light
+                    ? (company.logo.dark ?? company.logo.light)
                     : company.logo.light
                 }
                 alt={`${company.longName} logo`}
                 fill
                 sizes="88px"
                 wrapperHeight="64px"
+                style={{
+                  backgroundColor:
+                    colorMode === 'light' ? 'black' : 'transparent',
+                }}
               />
             </Box>
           </Tab>
@@ -141,7 +145,12 @@ const ExperienceTab = () => {
                       color={emphasis}
                       display="block"
                     />
-                    <Text as="span" display="block" variant="description" fontSize="sm">
+                    <Text
+                      as="span"
+                      display="block"
+                      variant="description"
+                      fontSize="sm"
+                    >
                       {roleDesc}
                     </Text>
                   </ListItem>

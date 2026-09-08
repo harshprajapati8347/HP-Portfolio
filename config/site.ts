@@ -11,8 +11,7 @@ export const site = {
   resumeUrl:
     'https://drive.google.com/drive/folders/14X1zywbbfk8TZzuJqrnm164d4Zy_9HMp?usp=sharing',
   githubProfile: 'https://github.com/harshprajapati8347',
-  linkedIn:
-    'https://www.linkedin.com/in/harsh-prajapati-developer/',
+  linkedIn: 'https://www.linkedin.com/in/harsh-prajapati-developer/',
   instagram: 'https://www.instagram.com/harsh.prajapati.26/',
   ogImage: '/og.jpg',
   avatar: '/logo_big.webp',
@@ -33,14 +32,14 @@ export const site = {
     ctaLabel: 'Get in touch!',
     body: [
       "Hey! Glad you're here.",
-      'I build and ship complete web applications — reliable backend systems, clean REST APIs, and functional frontends that are properly optimized and maintainable. Currently doing that full-time at Dentsu. Looking to go deeper on backend systems and cloud infrastructure in my next role.',
+      'I build and ship complete web applications — reliable backend systems, clean REST APIs, and functional frontends that are properly optimized and maintainable. Currently doing that full-time at Merkle. Looking to go deeper on backend systems and cloud infrastructure in my next role.',
     ],
   },
   about: {
     heading: 'What I do.',
     paragraphs: [
       "Hey, I'm Harsh — a Full Stack Developer with 3+ years of experience shipping production web applications. I'm most confident on the backend — REST API design, Node.js, PostgreSQL, MongoDB, AWS, Docker, and CI/CD. I've built systems from schema design through to cloud deployment, and I care about code that's well-structured and built to scale.",
-      "On the frontend I work with React.js, Next.js, and TypeScript — as an engineer, not a designer. State management, performance optimization, clean API integration. Currently at Dentsu, shipping backend tooling and web solutions for global enterprise clients. Next, I'm looking to go deeper on backend systems and cloud infrastructure.",
+      "On the frontend I work with React.js, Next.js, and TypeScript — as an engineer, not a designer. State management, performance optimization, clean API integration. Currently at Merkle, shipping backend tooling and web solutions for global enterprise clients. Next, I'm looking to go deeper on backend systems and cloud infrastructure.",
     ],
     skillsCta: 'See my full arsenal',
   },
@@ -48,8 +47,8 @@ export const site = {
     heading: "Places I've worked.",
     introBefore:
       'Since 2023, I have had the privilege to work with several companies that enabled me to hone my skills and talents. These companies will always have a special place in my heart. Currently I am working with',
-    currentCompanyName: 'Dentsu',
-    currentCompanyUrl: 'https://www.dentsu.com/in/en',
+    currentCompanyName: 'Merkle',
+    currentCompanyUrl: 'https://www.merkle.com/en.html',
   },
   works: {
     heading: 'Some of my works.',

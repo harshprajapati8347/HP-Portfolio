@@ -1,4 +1,4 @@
-export type CompanyId = 'Dentsu' | 'Blackcoffer' | 'Fleeguide'
+export type CompanyId = 'Merkle' | 'Blackcoffer' | 'Fleeguide'
 
 export type CompanyDetail = {
   name: string
@@ -15,16 +15,16 @@ export type CompanyDetail = {
 }
 
 export const Experiences: Record<CompanyId, CompanyDetail> = {
-  Dentsu: {
-    name: 'Dentsu',
-    longName: 'Dentsu',
+  Merkle: {
+    name: 'Merkle',
+    longName: 'Merkle',
     subDetail: 'Advertising Services',
-    url: 'https://www.dentsu.com/in/en',
+    url: 'https://www.merkle.com/en.html',
     position: 'Software Developer',
     duration: 'Jun 2023 - Present',
     logo: {
-      light: '/dentsu-light-theme.jpeg',
-      dark: '/dentsu-dark-theme.png',
+      light: '/merkle-light-theme.png',
+      dark: '/merkle-logo.svg',
     },
     roles: [
       'Designed and delivered full-stack MERN features across multiple client projects — owning Node.js/Express.js backend API architecture, React.js/Next.js frontend components, and PostgreSQL/MongoDB database schema, reducing feature delivery cycles through modular, reusable service design.',
@@ -69,7 +69,7 @@ export const Experiences: Record<CompanyId, CompanyDetail> = {
 }
 
 export const ExperiencesList: CompanyDetail[] = [
-  Experiences.Dentsu,
+  Experiences.Merkle,
   Experiences.Blackcoffer,
   Experiences.Fleeguide,
 ]
