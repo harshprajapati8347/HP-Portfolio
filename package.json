@@ -38,6 +38,6 @@
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.8.4",
     "sharp": "^0.34.2",
-    "typescript": "^5.9.2"
+    "typescript": "^7.0.2"
   }
 }
