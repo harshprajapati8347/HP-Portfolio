@@ -15,8 +15,6 @@ import {
   SiGoogletagmanager,
   SiPython,
   SiGithub,
-  SiFirebase,
-  SiCplusplus,
   SiExpress,
   SiFastapi,
   SiShadcnui,
@@ -26,9 +24,12 @@ import {
   SiMaterialdesign,
   SiNodedotjs,
   SiSocketdotio,
+  SiAircall,
+  SiVectorlogozone,
 } from 'react-icons/si'
 import { BsQuestionSquare } from 'react-icons/bs'
 import { FaAws } from 'react-icons/fa'
+import { PiQueue, PiMemory, PiGraph } from 'react-icons/pi'
 
 export type SkillCategory =
   | 'backend'
@@ -39,6 +40,7 @@ export type SkillCategory =
   | 'languages'
   | 'css_frameworks'
   | 'mobile'
+  | 'ai_genai'
 
 export type Skill = {
   name: string
@@ -47,13 +49,15 @@ export type Skill = {
 
 export const featuredSkills: Skill[] = [
   { name: 'React.js', icon: SiReact },
-  { name: 'TypeScript', icon: SiTypescript },
+  { name: 'Next.js', icon: SiNextdotjs },
   { name: 'MongoDB', icon: SiMongodb },
   { name: 'AWS', icon: FaAws },
-  { name: 'Next.js', icon: SiNextdotjs },
-  { name: 'JavaScript', icon: SiJavascript },
-  { name: 'Node.js', icon: SiNodedotjs },
   { name: 'LangChain', icon: SiLangchain },
+  { name: 'RAG & Generative AI', icon: SiAircall },
+  { name: 'TypeScript', icon: SiTypescript },
+  { name: 'Node.js', icon: SiNodedotjs },
+  { name: 'PostgreSQL', icon: SiPostgresql },
+  { name: 'Docker', icon: SiDocker },
 ]
 
 export const skillSectionTitles: Record<SkillCategory, string> = {
@@ -65,19 +69,17 @@ export const skillSectionTitles: Record<SkillCategory, string> = {
   analytics: 'Analytics Engineering',
   languages: 'Languages',
   mobile: 'Mobile Engineering',
+  ai_genai: 'AI & Generative AI',
 }
 
 export const Skills: Record<SkillCategory, Skill[]> = {
-  frontend: [
-    { name: 'React.js', icon: SiReact },
-    { name: 'Next.js', icon: SiNextdotjs },
-    { name: 'Redux Toolkit', icon: SiRedux },
-  ],
-  css_frameworks: [
-    { name: 'Tailwind CSS', icon: SiTailwindcss },
-    { name: 'Shadcn/UI', icon: SiShadcnui },
-    { name: 'Chakra UI', icon: BsQuestionSquare },
-    { name: 'Material UI', icon: SiMaterialdesign },
+  ai_genai: [
+    { name: 'LangChain', icon: SiLangchain },
+    { name: 'LangGraph', icon: PiGraph },
+    { name: 'RAG (Retrieval-Augmented Generation)', icon: SiAircall },
+    { name: 'Vector Databases (Pinecone)', icon: SiVectorlogozone },
+    { name: 'Prompt Engineering', icon: SiAircall },
+    { name: 'Mem0', icon: PiMemory },
   ],
   backend: [
     { name: 'Node.js', icon: SiNodedotjs },
@@ -85,35 +87,41 @@ export const Skills: Record<SkillCategory, Skill[]> = {
     { name: 'LangChain', icon: SiLangchain },
     { name: 'Zod (Schema Validation)', icon: BsQuestionSquare },
     { name: 'REST APIs', icon: BsQuestionSquare },
-    { name: 'GraphQL APIs', icon: BsQuestionSquare },
-    { name: 'FastAPI', icon: SiFastapi },
-    { name: 'Socket.IO', icon: SiSocketdotio },
     { name: 'Redis', icon: SiRedis },
+    { name: 'GraphQL APIs', icon: BsQuestionSquare },
+    { name: 'Socket.IO', icon: SiSocketdotio },
+    { name: 'FastAPI', icon: SiFastapi },
+  ],
+  frontend: [
+    { name: 'React.js', icon: SiReact },
+    { name: 'Next.js', icon: SiNextdotjs },
+    { name: 'Redux Toolkit', icon: SiRedux },
   ],
   database: [
     { name: 'MongoDB', icon: SiMongodb },
     { name: 'PostgreSQL', icon: SiPostgresql },
-    { name: 'Vector Databases', icon: BsQuestionSquare },
   ],
   cloud_devops: [
     { name: 'AWS EC2, S3, Lambda, CloudWatch', icon: FaAws },
     { name: 'Docker', icon: SiDocker },
     { name: 'GitHub Actions (CI/CD)', icon: SiGithubactions },
-    { name: 'Firebase', icon: SiFirebase },
     { name: 'Git', icon: SiGit },
     { name: 'GitHub', icon: SiGithub },
+  ],
+  css_frameworks: [
+    { name: 'Tailwind CSS', icon: SiTailwindcss },
+    { name: 'Shadcn/UI', icon: SiShadcnui },
+    { name: 'Material UI', icon: SiMaterialdesign },
   ],
   analytics: [
     { name: 'Google Analytics 4 (GA4)', icon: SiGoogleanalytics },
     { name: 'Google Tag Manager', icon: SiGoogletagmanager },
     { name: 'Tealium', icon: BsQuestionSquare },
-    { name: 'GMP APIs', icon: SiGooglecloud },
   ],
   languages: [
     { name: 'JavaScript (ES6+)', icon: SiJavascript },
     { name: 'TypeScript', icon: SiTypescript },
     { name: 'Python', icon: SiPython },
-    { name: 'C++', icon: SiCplusplus },
   ],
   mobile: [{ name: 'React Native', icon: SiReact }],
 }

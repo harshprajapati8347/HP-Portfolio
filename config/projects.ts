@@ -11,6 +11,15 @@ export interface Project {
 const projects: Project[] = [
   {
     idx: 1,
+    title: 'SourceLab',
+    src: '/sourcelab-icon.webp',
+    description:
+      'SourceLab — A multi-workspace RAG research assistant that goes beyond basic retrieval, using query transformation and Corrective RAG to catch bad retrievals before they hallucinate. Add PDFs, websites, YouTube, or text and get streamed, cited answers.',
+    ctaUrl: 'https://sourcelab.iamharsh.in',
+    githubUrl: 'https://github.com/harshprajapati8347/SourceLab',
+  },
+  {
+    idx: 2,
     title: 'Curiomart',
     src: 'https://curiomart.iamharsh.in/assets/logo-DXsWE0_a.png',
     description:
@@ -18,15 +27,6 @@ const projects: Project[] = [
     ctaUrl: 'https://curiomart.iamharsh.in',
     githubUrl: 'https://github.com/harshprajapati8347/CurioMart-Ecommerce',
     objectPosition: 'right 20%',
-  },
-  {
-    idx: 2,
-    title: 'SourceLab',
-    src: '/sourcelab-icon.webp',
-    description:
-      'A multi-workspace RAG research assistant — add PDFs, URLs, YouTube videos, or text as sources, then get streamed, grounded answers with click-through citations that jump to the exact page, timestamp, or paragraph they came from.',
-    ctaUrl: 'https://sourcelab.iamharsh.in',
-    githubUrl: 'https://github.com/harshprajapati8347/SourceLab',
   },
   {
     idx: 3,

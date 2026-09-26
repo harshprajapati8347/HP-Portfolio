@@ -43,6 +43,7 @@ const Detail = ({ onOpen }: ISkillSetModal) => {
         letterSpacing={1.8}
         style={{
           fontVariantCaps: 'small-caps',
+          zIndex: 1,
         }}
       >
         {site.about.heading}

@@ -2,7 +2,7 @@ export const site = {
   name: 'Harsh Prajapati',
   firstName: 'Harsh',
   lastName: 'Prajapati',
-  role: 'Full Stack Developer (MERN + Next.js)',
+  role: 'Software Engineer | Generative AI Engineer',
   email: 'harshprajapati0123@gmail.com',
   url: 'https://www.iamharsh.in',
   locale: 'en_US',
@@ -32,21 +32,21 @@ export const site = {
     ctaLabel: 'Get in touch!',
     body: [
       "Hey! Glad you're here.",
-      'I build and ship complete web applications — reliable backend systems, clean REST APIs, and functional frontends that are properly optimized and maintainable. Currently doing that full-time at Merkle. Looking to go deeper on backend systems and cloud infrastructure in my next role.',
+      "I build and ship complete web applications — reliable backend systems, clean REST APIs, and optimized frontends. Lately I've been going deeper into Generative AI, building RAG systems with query transformation, reranking, and guardrails. Currently at Merkle, looking for my next role in backend, cloud, or AI engineering.",
     ],
   },
   about: {
     heading: 'What I do.',
     paragraphs: [
-      "Hey, I'm Harsh — a Full Stack Developer with 3+ years of experience shipping production web applications. I'm most confident on the backend — REST API design, Node.js, PostgreSQL, MongoDB, AWS, Docker, and CI/CD. I've built systems from schema design through to cloud deployment, and I care about code that's well-structured and built to scale.",
-      "On the frontend I work with React.js, Next.js, and TypeScript — as an engineer, not a designer. State management, performance optimization, clean API integration. Currently at Merkle, shipping backend tooling and web solutions for global enterprise clients. Next, I'm looking to go deeper on backend systems and cloud infrastructure.",
+      "Hey, I'm Harsh — a Full Stack Developer with 3+ years shipping production web applications, now applying that foundation to Generative AI engineering. I'm most confident on the backend — REST API design, Node.js, PostgreSQL, MongoDB, AWS, Docker, and CI/CD. I've built systems from schema design through to cloud deployment, and I care about code built to scale.",
+      'On the GenAI side, I built SourceLab, a full-stack RAG research workspace inspired by Gemini Notebook — ingestion pipelines for multiple source types, per-workspace vector search with Pinecone, streaming chat with inline citations, and guardrails built to eliminate hallucinations. On the frontend I work with React.js, Next.js, and TypeScript — as an engineer, not a designer. Currently at Merkle, shipping backend tooling for global enterprise clients. Next: backend systems, cloud infrastructure, or full-time AI engineering.',
     ],
     skillsCta: 'See my full arsenal',
   },
   experience: {
     heading: "Places I've worked.",
     introBefore:
-      'Since 2023, I have had the privilege to work with several companies that enabled me to hone my skills and talents. These companies will always have a special place in my heart. Currently I am working with',
+      "Since 2023, I've worked with a few companies that shaped how I build software — from client-facing production systems to full-stack ownership of AI products end-to-end. Currently, I'm at Merkle.",
     currentCompanyName: 'Merkle',
     currentCompanyUrl: 'https://www.merkle.com/en.html',
   },
@@ -67,7 +67,7 @@ export const site = {
   contact: {
     heading: 'Say hi!',
     bodyBefore:
-      "I'm always happy to connect and discuss development, analytics, product ideas, or collaboration opportunities. Feel free to reach out via social media or",
+      "I'm always happy to connect and discuss development, Generative AI, product ideas, or collaboration opportunities. Feel free to reach out via social media or email.",
     bodyAfter: "—I'll get back as soon as I can.",
     emailLabel: 'email',
   },

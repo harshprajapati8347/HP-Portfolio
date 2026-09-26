@@ -27,10 +27,10 @@ export const Experiences: Record<CompanyId, CompanyDetail> = {
       dark: '/merkle-logo.svg',
     },
     roles: [
-      'Designed and delivered full-stack MERN features across multiple client projects — owning Node.js/Express.js backend API architecture, React.js/Next.js frontend components, and PostgreSQL/MongoDB database schema, reducing feature delivery cycles through modular, reusable service design.',
-      'Built a real-time data pipeline integrating GA4, GTM, and GMP APIs — automating custom event tagging, data extraction, and alerting workflows that eliminated manual analyst effort and improved reporting accuracy for clients.',
-      'Led production debugging and root cause analysis for critical incidents; implemented performance fixes and stabilised data pipelines, consistently maintaining deployment reliability across multi-client environments.',
-      'Optimised REST API response times and frontend load performance through query optimisation, indexing strategies, and React lazy-loading — delivering measurable improvements in application scalability and end-user experience.',
+      'Planned and built REST APIs end-to-end - architecture, development, QA, and staging-to-production rollout - coordinating with external client teams to scope requirements; led a domain-wide chatbot integration (AWS Lambda CRUD functions, Postman QA, CloudWatch monitoring) for Q&A and lead generation to secure additional SOW and revenue.',
+      'Architected server-side GTM implementations, including Google Tag Gateway setups for multiple clients to improve first-party data accuracy, and used AI-assisted audits to optimize GTM and Tealium tagging, driving notable CWV score improvement across client sites; leveraged GTM for dynamic GA4 and media pixel tracking to eliminate redundancy, and designed nonce-ready architectures to harden against XSS attacks.',
+      'Earned Braze Developer Certification and led Braze integrations for client platforms - building automated remarketing flows based on custom user behavior, data ingestion pipelines, push notifications, in-app messages, and content cards, contributing to significant improvement in engagement and conversion.',
+      "Integrated Tealium, an enterprise customer data orchestration solution, across client accounts - including custom dataLayer implementations, Enhanced Ecommerce tracking, and Measurement Protocol setups; handled AI-assisted audits of custom script ingestions, leveraging Tealium's pre-built tag library to accelerate custom tagging and reduce XSS injection risk.",
     ],
   },
   Blackcoffer: {
